@@ -30,7 +30,7 @@ export default function Timeline() {
             icon: '🎥',
             company: null,
             location: 'Bangalore, India',
-            image: 'assets/bumblebee.jpg'
+            image: 'https://drive.google.com/uc?export=download&id=1zc5wzUYoaRXaidceuTHV7NEyZNcGq_OG'
         },
         {
             id: 2,

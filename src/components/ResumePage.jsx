@@ -28,7 +28,7 @@ export default function ResumePage() {
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = '/assets/resume.pdf';
+        link.href = 'https://drive.google.com/file/d/1CZTW_hOUOY15swAAA3rXr554NfewxAkp/view?usp=drive_link';
         link.download = 'Shravan_Shenoy_Resume.pdf';
         document.body.appendChild(link);
         link.click();
@@ -139,7 +139,7 @@ export default function ResumePage() {
                             
                             {/* PDF Embed */}
                             <iframe
-                                src="/assets/resume.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                                src="https://drive.google.com/file/d/1CZTW_hOUOY15swAAA3rXr554NfewxAkp/preview"
                                 className="w-full h-[800px] sm:h-[900px] lg:h-[1000px] border-0"
                                 onLoad={handlePdfLoad}
                                 onError={handlePdfError}

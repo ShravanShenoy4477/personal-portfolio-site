@@ -68,7 +68,7 @@ export default function ProjectsPage() {
             type: 'Competition',
             category: 'Robotics',
             artifacts: [
-                { name: 'Competition Video', type: 'video', path: '/assets/robothon-competition.mp4' },
+                { name: 'Competition Video', type: 'video', path: 'https://drive.google.com/file/d/1ViHQofLK-pdxwHHV9KolCX5jx-bnlgmI/preview' },
             ]
         },
         {
@@ -85,7 +85,7 @@ export default function ProjectsPage() {
             video: 'Demo video available',
             documentation: 'Technical documentation provided',
             artifacts: [
-                { name: 'Challenge Video', type: 'video', path: '/assets/icra-challenge.mp4' },
+                { name: 'Challenge Video', type: 'video', path: 'https://drive.google.com/file/d/1ABr-DYs9hIMhr15QyJtHDa-bJkEjbg1z/preview' },
             ]
         },
         {
@@ -101,7 +101,7 @@ export default function ProjectsPage() {
             category: 'Healthcare AI',
             paper: 'Published research paper available',
             artifacts: [
-                { name: 'Techincal Report', type: 'pdf', path: '/assets/lung-cancer-report.pdf' },
+                { name: 'Techincal Report', type: 'pdf', path: 'https://drive.google.com/file/d/1Zmsf6zBOCa2u7c5WAfqgkMj_Zld6WM-A/view?usp=drive_link' },
             ]
         },
         {
@@ -117,8 +117,8 @@ export default function ProjectsPage() {
             category: 'Combustion Vehicles',
             artifacts: [
                 { name: 'About the Competition', type: 'URL', path: 'https://www.formulabharat.com/the-competition/' },
-                { name: 'Busines Plan Presentation (BPP)', type: 'pdf', path: '/assets/formula-student-bpp.pdf' },
-                { name: 'Engineering Design Presentation (EDP)', type: 'pdf', path: '/assets/formula-student-edp.pdf' },                    
+                { name: 'Busines Plan Presentation (BPP)', type: 'pdf', path: 'https://drive.google.com/file/d/1ZwLcCt2Mubw7mQBwJ58jbK1b4CCh2zx1/view?usp=drive_link' },
+                { name: 'Engineering Design Presentation (EDP)', type: 'pdf', path: 'https://drive.google.com/file/d/1IUB7UkgaHVaO66xVsOqKSL0-DrhIrr0R/view?usp=drive_link' },                    
             ]
         }
     ];
@@ -405,15 +405,25 @@ export default function ProjectsPage() {
 
                         {/* Video Player */}
                         <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                            <video
-                                className="absolute inset-0 w-full h-full rounded-lg"
-                                controls
-                                autoPlay
-                                muted
-                            >
-                                <source src={videoPopup.src} type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
+                            {videoPopup.src.includes('drive.google.com') ? (
+                                <iframe
+                                    src={videoPopup.src}
+                                    className="absolute inset-0 w-full h-full rounded-lg"
+                                    allow="autoplay; encrypted-media"
+                                    allowFullScreen
+                                    title={videoPopup.title}
+                                />
+                            ) : (
+                                <video
+                                    className="absolute inset-0 w-full h-full rounded-lg"
+                                    controls
+                                    autoPlay
+                                    muted
+                                >
+                                    <source src={videoPopup.src} type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                            )}
                         </div>
                     </div>
                 </div>

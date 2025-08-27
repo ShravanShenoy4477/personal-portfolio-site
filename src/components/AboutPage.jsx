@@ -143,12 +143,12 @@ export default function AboutPage() {
                                 {/* You can replace this placeholder with actual images like: */}
                                 <div className="grid grid-cols-2 gap-4 w-full h-full">
                                     <img 
-                                        src="/assets/bmwm3e36front.webp" 
+                                        src="https://drive.google.com/uc?export=download&id=1BqXOOIf5nDm05zW4YZtfZ5ZBSzxvA3Ku" 
                                         alt="Car inspiration Front" 
                                         className="w-full h-full object-cover rounded-lg shadow-md"
                                     />
                                     <img 
-                                        src="/assets/bmwm3e36rear.webp" 
+                                        src="https://drive.google.com/uc?export=download&id=1uWjnJKUlITZOBptCSsOTSHV7NzZKvmiF" 
                                         alt="Car inspiration Rear" 
                                         className="w-full h-full object-cover rounded-lg shadow-md"
                                     />
