@@ -1,0 +1,30 @@
+{
+  "1754647390984-Resume_7:8_LabelBox": {
+    "source": "1754647390984-Resume_7:8_LabelBox",
+    "type": "pdf",
+    "content": "\n\nSHRAVAN SHENOY\nLos Angeles, California|(213) 477-0602|shravan.shenoy111@gmail.com|LinkedIn\nEDUCATION\nUniversity of Southern CaliforniaJan 2025 - Dec 2026\nMaster of Science, Computer ScienceLos Angeles\n• GPA: 3.65 (on a scale of 4)\n• Coursework: Web Technologies, Analysis of Algorithms, Database Systems\nR.V. College of EngineeringAug 2020 - May 2024\nBachelor of Engineering (B.E.), Computer Science Engineering (CSE)\n• GPA: 9.05 (on a scale of 10)\nEXPERIENCE\nDynamic Robots and Controls Laboratory, University of Southern California (USC)Feb 2025 - Present\nApplied ResearcherLos Angeles, California\n• Engineered a vision-language segmentation pipeline using SAM2 and fallback detection via OWL-VIT, enabling robust object tracking \nand centroid estimation for bipedal robot soccer.\n• Benchmarked performance and stability of multiple segmentation models (SAM2 variants, MobileSAM, FastSAM), analyzing mask \naccuracy and inference speed on edge devices (Jetson Orin Nano).\n• Prototyped a modular evaluation pipeline for segmentation consistency and drift handling, using post-processing heuristics and Kalman \nfiltering to improve temporal mask stability.\nRobotics Innovations Lab, Indian Institute of Science (IISc)Apr 2023 - Dec 2023\nResearch InternBangalore, India\n• Researched vision-based human-robot collaboration (HRC) for safe motion planning, implementing gesture-based interaction, pose \nestimation, and static safety zone segmentation, evaluated against RRT and GDA baselines.\n• Developed a teleoperation-driven trajectory planning framework using multi-objective convex optimization to balance productivity and \nsafety, applying analytical methods to model human intent and spatial constraints.\n• Publication: Paper accepted for publication in Robotica (Q1) Journal (doi:10.1017/S0263574725000323)\nNetradyne Technologies Pvt. LtdFeb 2024 - Nov 2024\nSoftware Developer InternBangalore, India\n• Built an edge infrastructure and diagnostics pipeline for 10,000+ devices, with real-time CPU/GPU metrics and dynamic graphs for \ndebugging field systems.\n• Developed roadmap for a large language model (LLM)-based Root Cause Analysis system, combining preference signals, log analysis, \nand thresholding for failure mode classification across fleet-wide devices.\n• Explored prompt engineering and feedback modeling to simulate preference-driven RCA outputs; inspired by RLHF-like learning \ntechniques.\nACADEMIC PROJECTS\nVision-Based Soccer Robot\n• Designed and deployed a ROS2-integrated object state estimator for training a biped robot to play soccer, featuring real-time centroid \ntracking, dynamic fallback logic using LLMs, and TensorRT-accelerated inference on edge devices like Jetson Orin\n• Evaluated robustness of fallback vision-language prompts using LLMs across varying ball motion and lighting conditions\nRobothon E-Waste Segregation Challenge 2023 (TU Munich)\n• Programmed a 6-DOF robotic manipulator system for autonomous e-waste segregation on a custom platform, achieving 9th place \noverall by completing 4 out of 6 tasks successfully.\n• Integrated a YOLO-based computer vision pipeline using a RealSense camera for real-time object detection and task\ncategorization\nSKILLS\n• Languages: Python, C++\n• Frameworks & Tools: PyTorch, TensorRT, ONNX, OpenCV, ROS, Git, Pandas\n• ML Topics: Vision-Language Models, Transformer-based Models (OWL-ViT), LLM-based Pipelines, Machine Learning, Data \nAnalysis, Large Language Models, Computer Vision\nHONORS & AWARDS\n• ICRA Metrics Adapt Challenge 2023 (Similar to Robothon) - 1st place overall\n• Australs International Parliamentary Debate 2022 - 14th place overall\n• School Prefect (Student Leader) at National Public School, 2019",
+    "skills": [
+      "python",
+      "c++",
+      "machine learning",
+      "computer vision",
+      "robotics",
+      "ros",
+      "opencv",
+      "pytorch",
+      "git"
+    ],
+    "projects": [
+      "• Developed a teleoperation-driven trajectory planning framework using multi-objective convex optimization to balance productivity and \nsafety, applying analytical methods to model human intent and spatial constraints",
+      "LtdFeb 2024 - Nov 2024\nSoftware Developer InternBangalore, India\n• Built an edge infrastructure and diagnostics pipeline for 10,000+ devices, with real-time CPU/GPU metrics and dynamic graphs for \ndebugging field systems",
+      "• Developed roadmap for a large language model (LLM)-based Root Cause Analysis system, combining preference signals, log analysis, \nand thresholding for failure mode classification across fleet-wide devices",
+      "ACADEMIC PROJECTS\nVision-Based Soccer Robot\n• Designed and deployed a ROS2-integrated object state estimator for training a biped robot to play soccer, featuring real-time centroid \ntracking, dynamic fallback logic using LLMs, and TensorRT-accelerated inference on edge devices like Jetson Orin\n• Evaluated robustness of fallback vision-language prompts using LLMs across varying ball motion and lighting conditions\nRobothon E-Waste Segregation Challenge 2023 (TU Munich)\n• Programmed a 6-DOF robotic manipulator system for autonomous e-waste segregation on a custom platform, achieving 9th place \noverall by completing 4 out of 6 tasks successfully"
+    ],
+    "technologies": [
+      "database"
+    ],
+    "insights": [],
+    "summary": "\n\nSHRAVAN SHENOY\nLos Angeles, California|(213) 477-0602|shravan. shenoy111@gmail. com|LinkedIn\nEDUCATION\nUniversity of Southern CaliforniaJan 2025 - Dec 2026\nMaster of Science, Computer ScienceLos Angeles\n• GPA: 3.",
+    "timestamp": "2025-08-18T15:21:51.124Z"
+  }
+}
