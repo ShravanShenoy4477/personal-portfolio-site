@@ -377,6 +377,7 @@ export default function Timeline() {
                                         src={selectedItem.image} 
                                         alt={selectedItem.title}
                                         className="w-full h-48 object-cover rounded-lg"
+                                        style={{ objectPosition: 'top' }}
                                         onLoad={(e) => console.log('Timeline image loaded successfully:', e.target.src)}
                                         onError={(e) => {
                                             console.error('Failed to load timeline image:', e.target.src);
