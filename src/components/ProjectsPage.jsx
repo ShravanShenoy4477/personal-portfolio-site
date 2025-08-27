@@ -68,7 +68,7 @@ export default function ProjectsPage() {
             type: 'Competition',
             category: 'Robotics',
             artifacts: [
-                { name: 'Competition Video', type: 'video', path: 'https://drive.google.com/file/d/1ViHQofLK-pdxwHHV9KolCX5jx-bnlgmI/preview' },
+                { name: 'Competition Video', type: 'video', path: 'https://youtu.be/iYcMGEpzhTo' },
             ]
         },
         {
@@ -85,7 +85,7 @@ export default function ProjectsPage() {
             video: 'Demo video available',
             documentation: 'Technical documentation provided',
             artifacts: [
-                { name: 'Challenge Video', type: 'video', path: 'https://drive.google.com/file/d/1ABr-DYs9hIMhr15QyJtHDa-bJkEjbg1z/preview' },
+                { name: 'Challenge Video', type: 'video', path: 'https://youtu.be/RJtAKvKiGgY' },
             ]
         },
         {
@@ -101,7 +101,7 @@ export default function ProjectsPage() {
             category: 'Healthcare AI',
             paper: 'Published research paper available',
             artifacts: [
-                { name: 'Techincal Report', type: 'pdf', path: 'https://drive.google.com/file/d/1Zmsf6zBOCa2u7c5WAfqgkMj_Zld6WM-A/view?usp=drive_link' },
+                { name: 'Techincal Report', type: 'pdf', path: 'https://res.cloudinary.com/dsyshe328/image/upload/v1756282347/lung-cancer-report_datqev.pdf' },
             ]
         },
         {
@@ -117,8 +117,8 @@ export default function ProjectsPage() {
             category: 'Combustion Vehicles',
             artifacts: [
                 { name: 'About the Competition', type: 'URL', path: 'https://www.formulabharat.com/the-competition/' },
-                { name: 'Busines Plan Presentation (BPP)', type: 'pdf', path: 'https://drive.google.com/file/d/1ZwLcCt2Mubw7mQBwJ58jbK1b4CCh2zx1/view?usp=drive_link' },
-                { name: 'Engineering Design Presentation (EDP)', type: 'pdf', path: 'https://drive.google.com/file/d/1IUB7UkgaHVaO66xVsOqKSL0-DrhIrr0R/view?usp=drive_link' },                    
+                { name: 'Busines Plan Presentation (BPP)', type: 'pdf', path: 'https://res.cloudinary.com/dsyshe328/image/upload/v1756282349/formula-student-bpp_dcdrzn.pdf' },
+                { name: 'Engineering Design Presentation (EDP)', type: 'pdf', path: 'https://res.cloudinary.com/dsyshe328/image/upload/v1756282349/formula-student-edp_dcdrzn.pdf' },                    
             ]
         }
     ];
@@ -405,7 +405,15 @@ export default function ProjectsPage() {
 
                         {/* Video Player */}
                         <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                            {videoPopup.src.includes('drive.google.com') ? (
+                            {videoPopup.src.includes('youtu.be') || videoPopup.src.includes('youtube.com') ? (
+                                <iframe
+                                    src={videoPopup.src.replace('youtu.be/', 'youtube.com/embed/').replace('watch?v=', 'embed/')}
+                                    className="absolute inset-0 w-full h-full rounded-lg"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    title={videoPopup.title}
+                                />
+                            ) : videoPopup.src.includes('drive.google.com') ? (
                                 <iframe
                                     src={videoPopup.src}
                                     className="absolute inset-0 w-full h-full rounded-lg"
