@@ -18,7 +18,7 @@ export default function Timeline() {
             company: null,
             location: 'Bangalore, India',
             duration: '9 months + 22 years ongoing',
-            image: 'assets/internship-photo.jpeg' // Optional image field
+            image: 'https://res.cloudinary.com/dsyshe328/image/upload/v1756282342/iisc-internship_owv7we.jpg' // Optional image field
         },
         {
             id: 2, 
@@ -69,7 +69,7 @@ export default function Timeline() {
             technologies: ['C++', 'Python', 'ROS', 'OpenCV', 'PyTorch', 'YOLO', 'Gazebo', 'CUDA'],
             duration: '7 months',
             location: 'Bangalore, India',
-            image: 'assets/iisc-internship.jpg'
+            image: 'https://res.cloudinary.com/dsyshe328/image/upload/v1756282342/iisc-internship_owv7we.jpg'
         },
         {
             id: 5,
@@ -377,7 +377,9 @@ export default function Timeline() {
                                         src={selectedItem.image} 
                                         alt={selectedItem.title}
                                         className="w-full h-48 object-cover rounded-lg"
+                                        onLoad={(e) => console.log('Timeline image loaded successfully:', e.target.src)}
                                         onError={(e) => {
+                                            console.error('Failed to load timeline image:', e.target.src);
                                             e.target.style.display = 'none';
                                         }}
                                     />

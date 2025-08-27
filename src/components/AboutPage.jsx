@@ -139,19 +139,32 @@ export default function AboutPage() {
                     <div className="bg-white rounded-lg shadow-md p-8 max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-8">
                         {/* Car Build Pictures */}
                         <div className="flex-shrink-0 w-full lg:w-1/2">
-                            <div className="bg-gray-100 rounded-lg p-6 border-2 border-dashed border-gray-300 min-h-[300px] flex flex-col items-center justify-center">
-                                {/* You can replace this placeholder with actual images like: */}
-                                <div className="grid grid-cols-2 gap-4 w-full h-full">
-                                    <img 
-                                        src="https://res.cloudinary.com/dsyshe328/image/upload/v1756282346/bmwm3e36front_ret5vj.webp" 
-                                        alt="Car inspiration Front" 
-                                        className="w-full h-full object-cover rounded-lg shadow-md"
-                                    />
-                                    <img 
-                                        src="https://res.cloudinary.com/dsyshe328/image/upload/v1756282345/bmwm3e36rear_tv9qza.webp" 
-                                        alt="Car inspiration Rear" 
-                                        className="w-full h-full object-cover rounded-lg shadow-md"
-                                    />
+                            <div className="bg-gray-100 rounded-lg p-6 border-2 border-dashed border-gray-300">
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+                                        <img 
+                                            src="https://res.cloudinary.com/dsyshe328/image/upload/v1756282346/bmwm3e36front_ret5vj.webp" 
+                                            alt="Car inspiration Front" 
+                                            className="w-full h-full object-cover rounded-lg shadow-md"
+                                            onLoad={(e) => console.log('Front image loaded successfully:', e.target.src)}
+                                            onError={(e) => {
+                                                console.error('Failed to load front image:', e.target.src);
+                                                e.target.style.display = 'none';
+                                            }}
+                                        />
+                                    </div>
+                                    <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+                                        <img 
+                                            src="https://res.cloudinary.com/dsyshe328/image/upload/v1756282345/bmwm3e36rear_tv9qza.webp" 
+                                            alt="Car inspiration Rear" 
+                                            className="w-full h-full object-cover rounded-lg shadow-md"
+                                            onLoad={(e) => console.log('Rear image loaded successfully:', e.target.src)}
+                                            onError={(e) => {
+                                                console.error('Failed to load rear image:', e.target.src);
+                                                e.target.style.display = 'none';
+                                            }}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
