@@ -32,6 +32,10 @@ public/assets/*.png
 public/assets/*.pdf
 !public/assets/README.md
 
+# Specific large files that exceed GitHub limits
+public/assets/icra-challenge.mp4
+public/assets/robothon-competition.mp4
+
 # Build outputs
 dist/
 dist-ssr/
