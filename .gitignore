@@ -23,15 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 
-# Large asset files
-public/assets/
-public/assets/*
-*.mp4
-*.webp
-*.jpg
-*.jpeg
-*.png
-*.pdf
+# Large asset files - exclude only the very large ones
+public/assets/*.mp4
+public/assets/*.webp
+public/assets/*.jpg
+public/assets/*.jpeg
+public/assets/*.png
+public/assets/*.pdf
+!public/assets/README.md
 
 # Build outputs
 dist/
