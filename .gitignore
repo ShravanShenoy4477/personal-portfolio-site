@@ -39,3 +39,9 @@ public/assets/robothon-competition.mp4
 # Build outputs
 dist/
 dist-ssr/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+chatbot-backend/.env
