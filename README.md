@@ -1,12 +1,58 @@
-# React + Vite
+# Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website built with React, Vite, and Tailwind CSS. Features include project showcases, skills demonstrations, and an AI-powered chatbot for interactive engagement.
 
-Currently, two official plugins are available:
+## 🚀 **Features**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Project Showcase**: Interactive project cards with detailed information
+- **Skills Section**: Visual representation of technical expertise
+- **AI Chatbot**: Intelligent assistant for answering portfolio-related questions
+- **Timeline**: Professional journey and achievements
+- **Modern UI**: Clean, professional design with smooth animations
 
-## Expanding the ESLint configuration
+## 🤖 **Chatbot API Integration**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The portfolio includes an AI-powered chatbot that can answer questions about your experience, research, and projects. 
+
+### **Setup Instructions:**
+
+1. **Create a `.env` file** in the root directory:
+   ```bash
+   REACT_APP_CHATBOT_API_URL=https://your-railway-app.railway.app
+   REACT_APP_CHATBOT_ENDPOINT=/chat
+   ```
+
+2. **Replace the placeholder URL** with your actual Railway app URL once deployed
+
+3. **Restart your development server** after adding the environment variables
+
+### **Chatbot Capabilities:**
+- Research & Experience questions
+- Technical skills inquiries  
+- Project details and achievements
+- Educational background
+- Current work at DRCL
+
+### **Fallback Mode:**
+If the API is unavailable, the chatbot provides intelligent fallback responses based on your portfolio content.
+
+## 🛠 **Tech Stack**
+
+- **Frontend**: React 19, Vite, Tailwind CSS
+- **State Management**: React Hooks
+- **Routing**: React Router DOM
+- **Deployment**: GitHub Pages
+- **Assets**: Cloudinary for media hosting
+
+## 📱 **Getting Started**
+
+1. **Clone the repository**
+2. **Install dependencies**: `npm install`
+3. **Set up environment variables** (see Chatbot section above)
+4. **Start development server**: `npm run dev`
+5. **Build for production**: `npm run build`
+
+## 🌐 **Deployment**
+
+The site is configured for GitHub Pages deployment with automatic builds via GitHub Actions.

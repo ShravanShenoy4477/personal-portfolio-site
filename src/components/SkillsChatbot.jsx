@@ -4,7 +4,18 @@ const SkillsChatbot = ({ isOpen, onClose, selectedSkill }) => {
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [sessionId, setSessionId] = useState('');
     const messagesEndRef = useRef(null);
+
+    // Sample questions for quick access
+    const sampleQuestions = [
+        "What is your current research at DRCL?",
+        "Tell me about your robotics experience",
+        "What technologies do you know?",
+        "Tell me about your projects",
+        "What's your educational background?",
+        "How long have you been working with this skill?"
+    ];
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -16,11 +27,15 @@ const SkillsChatbot = ({ isOpen, onClose, selectedSkill }) => {
 
     useEffect(() => {
         if (isOpen && selectedSkill) {
+            // Generate or retrieve session ID for this skill conversation
+            const newSessionId = `website_${selectedSkill.name}_${Date.now()}`;
+            setSessionId(newSessionId);
+            
             // Initialize conversation with skill context
             const initialMessage = {
                 id: Date.now(),
                 type: 'bot',
-                content: `Hi! I can tell you about my experience with ${selectedSkill.name}. What would you like to know?`,
+                content: `Hi! I can tell you about my experience with ${selectedSkill.name}. Ask me anything about my research, projects, or technical expertise!`,
                 timestamp: new Date().toLocaleTimeString()
             };
             setMessages([initialMessage]);
@@ -29,21 +44,29 @@ const SkillsChatbot = ({ isOpen, onClose, selectedSkill }) => {
 
     const handleSendMessage = async () => {
         if (!inputMessage.trim()) return;
+        await sendMessage(inputMessage);
+    };
 
+    const handleQuestionSend = async (question) => {
+        if (!question.trim()) return;
+        await sendMessage(question);
+    };
+
+    const sendMessage = async (messageText) => {
         const userMessage = {
             id: Date.now(),
             type: 'user',
-            content: inputMessage,
+            content: messageText,
             timestamp: new Date().toLocaleTimeString()
         };
 
         setMessages(prev => [...prev, userMessage]);
-        setInputMessage('');
+        setInputMessage(''); // Clear input after sending
         setIsLoading(true);
 
         try {
-            // Simulate API call to chatbot
-            const response = await simulateChatbotResponse(inputMessage, selectedSkill);
+            // Call the actual chatbot API
+            const response = await callChatbotAPI(messageText, selectedSkill);
             
             const botMessage = {
                 id: Date.now() + 1,
@@ -54,10 +77,11 @@ const SkillsChatbot = ({ isOpen, onClose, selectedSkill }) => {
 
             setMessages(prev => [...prev, botMessage]);
         } catch (error) {
+            console.error('Chatbot API error:', error);
             const errorMessage = {
                 id: Date.now() + 1,
                 type: 'bot',
-                content: "Sorry, I'm having trouble connecting right now. Please try again later.",
+                content: "Sorry, I encountered an error. Please try again.",
                 timestamp: new Date().toLocaleTimeString()
             };
             setMessages(prev => [...prev, errorMessage]);
@@ -66,26 +90,56 @@ const SkillsChatbot = ({ isOpen, onClose, selectedSkill }) => {
         }
     };
 
-    const simulateChatbotResponse = async (message, skill) => {
-        // This will be replaced with actual chatbot API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
+    const callChatbotAPI = async (message, skill) => {
+        // Use the actual Railway API URL
+        const API_BASE_URL = 'https://web-production-4fa536.up.railway.app';
+        const API_ENDPOINT = '/chat';
         
-        const responses = {
-            'experience': `I've used ${skill.name} extensively in several projects. For example, in my robotics project, I implemented ${skill.name} for sensor fusion and control algorithms.`,
-            'projects': `Here are some key projects where I used ${skill.name}:\n• Autonomous Robot Navigation System\n• Computer Vision Pipeline\n• Machine Learning Model Training`,
-            'level': `My proficiency level with ${skill.name} is ${skill.level || 'Advanced'}. I've been working with it for about ${skill.years || '3'} years.`,
-            'default': `I have solid experience with ${skill.name}. I've used it in various contexts including robotics, computer vision, and data analysis. What specific aspect would you like to know more about?`
-        };
+        // Use persistent session ID for conversation continuity
+        const currentSessionId = sessionId || `website_${skill.name}_${Date.now()}`;
+        
+        try {
+            const response = await fetch(`${API_BASE_URL}${API_ENDPOINT}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: message,
+                    session_id: currentSessionId
+                })
+            });
 
-        const lowerMessage = message.toLowerCase();
-        if (lowerMessage.includes('experience') || lowerMessage.includes('how long')) {
-            return responses.experience;
-        } else if (lowerMessage.includes('project') || lowerMessage.includes('work')) {
-            return responses.projects;
-        } else if (lowerMessage.includes('level') || lowerMessage.includes('proficiency')) {
-            return responses.level;
-        } else {
-            return responses.default;
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            return data.response;
+        } catch (error) {
+            console.error('Chatbot API error:', error);
+            
+            // Fallback responses if API is not available
+            const fallbackResponses = {
+                'research': `I'm currently working on cutting-edge research in robot perception at Dynamic Robotics and Control Lab, USC. My focus is on real-time object state estimation using vision-language models and segmentation pipelines.`,
+                'experience': `I have extensive experience in robotics, computer vision, and AI/ML. I've worked at ABB, IISc, and Netradyne Technologies on various robotics and automation projects.`,
+                'projects': `Some of my key projects include the ICRA METRICS ADAPT Challenge (winners), Robothon competition (top 10), and developing vision stacks for humanoid robots.`,
+                'skills': `My technical skills include Python, C++, ROS, OpenCV, PyTorch, CUDA, and various robotics frameworks. I specialize in computer vision and machine learning for robotics applications.`,
+                'default': `I'm a robotics researcher and software developer with expertise in computer vision, AI/ML, and robotics. I'm currently pursuing research at USC's Dynamic Robotics and Control Lab.`
+            };
+
+            const lowerMessage = message.toLowerCase();
+            if (lowerMessage.includes('research') || lowerMessage.includes('current') || lowerMessage.includes('drc')) {
+                return fallbackResponses.research;
+            } else if (lowerMessage.includes('experience') || lowerMessage.includes('work')) {
+                return fallbackResponses.experience;
+            } else if (lowerMessage.includes('project') || lowerMessage.includes('competition')) {
+                return fallbackResponses.projects;
+            } else if (lowerMessage.includes('skill') || lowerMessage.includes('technology')) {
+                return fallbackResponses.skills;
+            } else {
+                return fallbackResponses.default;
+            }
         }
     };
 
@@ -153,7 +207,7 @@ const SkillsChatbot = ({ isOpen, onClose, selectedSkill }) => {
 
                 {/* Input */}
                 <div className="p-4 border-t border-gray-200">
-                    <div className="flex space-x-2">
+                    <div className="flex space-x-2 mb-3">
                         <input
                             type="text"
                             value={inputMessage}
@@ -169,9 +223,43 @@ const SkillsChatbot = ({ isOpen, onClose, selectedSkill }) => {
                             className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18 9-2zm0 0v-8" />
                             </svg>
                         </button>
+                    </div>
+                    
+                    {/* Sample Questions */}
+                    <div className="space-y-2">
+                        <p className="text-xs text-gray-500">Quick questions:</p>
+                        <div className="flex flex-wrap gap-2">
+                            {sampleQuestions.map((question, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => {
+                                        setInputMessage(question);
+                                        // Auto-send the question
+                                        setTimeout(() => {
+                                            const tempMessage = question;
+                                            setInputMessage('');
+                                            // Create and send the message
+                                            const userMessage = {
+                                                id: Date.now(),
+                                                type: 'user',
+                                                content: tempMessage,
+                                                timestamp: new Date().toLocaleTimeString()
+                                            };
+                                            setMessages(prev => [...prev, userMessage]);
+                                            // Call API with the question
+                                            handleQuestionSend(tempMessage);
+                                        }, 100);
+                                    }}
+                                    className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-2 py-1 rounded-full transition-colors cursor-pointer"
+                                    disabled={isLoading}
+                                >
+                                    {question}
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
