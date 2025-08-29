@@ -7,7 +7,6 @@ export default function SkillsPage() {
 	const location = useLocation();
 	const [skills, setSkills] = useState([]);
 	const [isChatbotOpen, setIsChatbotOpen] = useState(false);
-	const [selectedSkill, setSelectedSkill] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 	
 	const navigationItems = [
@@ -93,14 +92,8 @@ export default function SkillsPage() {
 		}
 	};
 
-	const handleSkillClick = (skill) => {
-		setSelectedSkill(skill);
-		setIsChatbotOpen(true);
-	};
-
 	const handleCloseChatbot = () => {
 		setIsChatbotOpen(false);
-		setSelectedSkill(null);
 	};
 
 	const getCategorySkills = () => {
@@ -159,11 +152,11 @@ export default function SkillsPage() {
 						Skills & Expertise
 					</h1>
 					<p className="text-xl text-gray-600 mb-4">
-						Click any skill to ask about my experience with it
+						Browse my technical skills and expertise across different domains
 					</p>
 					<div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-2xl mx-auto">
 						<p className="text-sm text-blue-800">
-							💡 <strong>Tip:</strong> Each bullet is clickable and opens the AI assistant with context about that skill.
+							💬 <strong>Chat with me:</strong> Use the chatbot widget at the bottom right to ask about any skill, project, or experience!
 						</p>
 					</div>
 				</div>
@@ -189,25 +182,20 @@ export default function SkillsPage() {
 								<ul className="list-disc list-inside space-y-2">
 									{categorySkills.map((skill) => (
 										<li key={skill.name} className="text-gray-800">
-											<button
-												onClick={() => handleSkillClick(skill)}
-												className="text-left w-full group"
-											>
-												<div className="flex items-center gap-2">
-													<span className="font-medium group-hover:underline">
-														{skill.name}
-													</span>
-													<span className={`px-2 py-0.5 text-[10px] font-medium rounded-full border ${getLevelColor(skill.level)}`}>
-														{skill.level}
-													</span>
-													<span className="text-xs text-gray-500">({skill.years} yrs)</span>
-												</div>
-												{skill.description && (
-													<p className="text-sm text-gray-600 mt-0.5">
-														{skill.description}
-													</p>
-												)}
-											</button>
+											<div className="flex items-center gap-2">
+												<span className="font-medium">
+													{skill.name}
+												</span>
+												<span className={`px-2 py-0.5 text-[10px] font-medium rounded-full border ${getLevelColor(skill.level)}`}>
+													{skill.level}
+												</span>
+												<span className="text-xs text-gray-500">({skill.years} yrs)</span>
+											</div>
+											{skill.description && (
+												<p className="text-sm text-gray-600 mt-0.5">
+													{skill.description}
+												</p>
+											)}
 										</li>
 									))}
 								</ul>
@@ -217,11 +205,11 @@ export default function SkillsPage() {
 				)}
 			</main>
 
-			{/* Chatbot */}
+			{/* Chatbot Widget - Always Visible */}
 			<SkillsChatbot
-				isOpen={isChatbotOpen}
+				isOpen={true}
 				onClose={handleCloseChatbot}
-				selectedSkill={selectedSkill}
+				selectedSkill={null}
 			/>
 		</div>
 	);

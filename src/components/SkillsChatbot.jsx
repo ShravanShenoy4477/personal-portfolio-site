@@ -5,6 +5,7 @@ const SkillsChatbot = ({ isOpen, onClose, selectedSkill }) => {
     const [inputMessage, setInputMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [sessionId, setSessionId] = useState('');
+    const [isExpanded, setIsExpanded] = useState(false);
     const messagesEndRef = useRef(null);
 
     // Sample questions for quick access
@@ -14,7 +15,9 @@ const SkillsChatbot = ({ isOpen, onClose, selectedSkill }) => {
         "What technologies do you know?",
         "Tell me about your projects",
         "What's your educational background?",
-        "How long have you been working with this skill?"
+        "What are your strongest technical skills?",
+        "Tell me about your Formula Student experience",
+        "What programming languages are you proficient in?"
     ];
 
     const scrollToBottom = () => {
@@ -26,16 +29,20 @@ const SkillsChatbot = ({ isOpen, onClose, selectedSkill }) => {
     }, [messages]);
 
     useEffect(() => {
-        if (isOpen && selectedSkill) {
-            // Generate or retrieve session ID for this skill conversation
-            const newSessionId = `website_${selectedSkill.name}_${Date.now()}`;
+        if (isOpen) {
+            // Generate or retrieve session ID for this conversation
+            const newSessionId = selectedSkill 
+                ? `website_${selectedSkill.name}_${Date.now()}`
+                : `website_general_${Date.now()}`;
             setSessionId(newSessionId);
             
-            // Initialize conversation with skill context
+            // Initialize conversation with appropriate context
             const initialMessage = {
                 id: Date.now(),
                 type: 'bot',
-                content: `Hi! I can tell you about my experience with ${selectedSkill.name}. Ask me anything about my research, projects, or technical expertise!`,
+                content: selectedSkill 
+                    ? `Hi! I can tell you about my experience with ${selectedSkill.name}. Ask me anything about my research, projects, or technical expertise!`
+                    : `Hi! I'm your AI assistant. Ask me about any of my skills, projects, research, or experience. I can help recruiters understand my background and capabilities!`,
                 timestamp: new Date().toLocaleTimeString()
             };
             setMessages([initialMessage]);
