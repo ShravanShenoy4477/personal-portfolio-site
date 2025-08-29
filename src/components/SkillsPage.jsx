@@ -209,7 +209,6 @@ export default function SkillsPage() {
 			<SkillsChatbot
 				isOpen={true}
 				onClose={handleCloseChatbot}
-				selectedSkill={null}
 			/>
 		</div>
 	);
