@@ -92,21 +92,23 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
             console.log('Calling chatbot API:', `${API_BASE_URL}${API_ENDPOINT}`);
             console.log('Request payload:', { message, session_id: currentSessionId });
             
-            // Try POST first, if that fails, try GET with query parameters
-            let response;
-            try {
-                response = await fetch(`${API_BASE_URL}${API_ENDPOINT}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        message: message,
-                        session_id: currentSessionId
-                    })
-                });
-            } catch (postError) {
-                console.log('POST failed, trying GET with query params...');
+            // Try POST first, if that fails with 405, try GET with query parameters
+            let response = await fetch(`${API_BASE_URL}${API_ENDPOINT}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: message,
+                    session_id: currentSessionId
+                })
+            });
+
+            console.log('First attempt response status:', response.status);
+
+            // If POST returns 405 (Method Not Allowed), try GET
+            if (response.status === 405) {
+                console.log('POST returned 405, trying GET with query params...');
                 const params = new URLSearchParams({
                     message: message,
                     session_id: currentSessionId
@@ -114,10 +116,11 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
                 response = await fetch(`${API_BASE_URL}${API_ENDPOINT}?${params}`, {
                     method: 'GET'
                 });
+                console.log('GET attempt response status:', response.status);
             }
 
-            console.log('API Response status:', response.status);
-            console.log('API Response headers:', response.headers);
+            console.log('Final API Response status:', response.status);
+            console.log('Final API Response headers:', response.headers);
 
             if (!response.ok) {
                 const errorText = await response.text();
