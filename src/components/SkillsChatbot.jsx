@@ -28,7 +28,7 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
             const initialMessage = {
                 id: Date.now(),
                 type: 'bot',
-                content: `Hi! I'm your AI assistant. Ask me about any of my skills, projects, research, or experience. I can help recruiters understand my background and capabilities!`,
+                content: `Hi! I'm Shravan's AI assistant. Ask me about his skills, projects, research, or experience. I can help recruiters understand his background and capabilities!`,
                 timestamp: new Date().toLocaleTimeString()
             };
             setMessages([initialMessage]);
@@ -185,8 +185,8 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
                     {/* Header */}
                     <div className="bg-blue-600 text-white p-4 rounded-t-lg flex justify-between items-center">
                         <div>
-                            <h3 className="font-semibold">AI Recruiter Assistant</h3>
-                            <p className="text-sm opacity-90">Ask about skills, projects & experience</p>
+                            <h3 className="font-semibold">Shravan's AI Assistant</h3>
+                            <p className="text-sm opacity-90">Ask about his skills, projects & experience</p>
                         </div>
                         <button
                             onClick={() => setIsExpanded(false)}
