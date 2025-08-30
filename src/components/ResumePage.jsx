@@ -95,12 +95,10 @@ export default function ResumePage() {
                     </h2>
                     <div className="prose prose-gray max-w-none">
                         <p className="text-gray-700 leading-relaxed mb-4">
-                            [Your professional summary will go here. This is a great place to highlight your key strengths, 
-                            career objectives, and what makes you unique as a candidate.]
+                            Shravan Shenoy is a software developer with focused, practical experience at the intersection of robotics, artificial intelligence, and cloud computing. Proficient in both Python and C#, he has successfully applied these skills to develop solutions from proof-of-concept to fully deployed tools in both corporate and research environments. His background includes significant internships at ABB Robotics and Netradyne, research contributions at the Indian Institute of Science (IISc), and a comprehensive undergraduate project in machine learning.
                         </p>
                         <p className="text-gray-700 leading-relaxed">
-                            [You can add multiple paragraphs here to provide a comprehensive overview of your background, 
-                            key achievements, and what you're looking for in your next role.]
+                            Shravan's core competencies are demonstrated through several key projects that delivered measurable impact: at ABB Robotics, he independently developed a Voice Assistance Middleware in C#/.NET for collaborative robots; at Netradyne, he designed and deployed a Python-based automated monitoring tool that reduced manual analysis time by 40-50%; and his undergraduate research achieved 93.66% accuracy in lung cancer metastasis detection using ensemble learning. He has proven experience working independently on proofs-of-concept and collaborating within cross-functional teams to deliver production-ready solutions, currently seeking an internship where he can apply his skills in robotics, machine learning, and software engineering to solve challenging problems.
                         </p>
                     </div>
                 </div>
