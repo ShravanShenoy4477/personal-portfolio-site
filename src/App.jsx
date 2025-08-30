@@ -10,9 +10,8 @@ import BlogPage from './components/BlogPage';
 import ResumePage from './components/ResumePage';
 import './App.css';
 
-function AppContent() {
+function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const location = useLocation();
 
   useEffect(() => {
     // Check if this is the first visit
@@ -20,9 +19,7 @@ function AppContent() {
     
     if (!hasVisitedBefore) {
       // First visit: show loading page for 5 seconds
-      setIsLoading(true);
       const timer = setTimeout(() => {
-        setIsLoading(false);
         // Mark as visited
         localStorage.setItem('hasVisitedPortfolio', 'true');
         // Navigate to home page
@@ -34,35 +31,30 @@ function AppContent() {
       // Not first visit: skip loading page
       setIsLoading(false);
     }
-  }, [location.pathname]);
+  }, []);
 
-  // Show loading page first
+  // Show loading page on first visit
   if (isLoading) {
     return <LoadingPage />;
   }
 
-  return (
-    <Routes>
-      {/* Main pages */}
-      <Route path="/" element={<Navigate to="/home" replace />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/skills" element={<SkillsPage />} />
-      <Route path="/projects" element={<ProjectsPage />} />
-      <Route path="/hire-me" element={<HireMePage />} />
-      <Route path="/blog" element={<BlogPage />} />
-      <Route path="/resume" element={<ResumePage />} />
-      
-      {/* Redirect any unknown routes to home */}
-      <Route path="*" element={<Navigate to="/home" replace />} />
-    </Routes>
-  );
-}
-
-function App() {
+  // Show the actual app after loading
   return (
     <Router>
-      <AppContent />
+      <Routes>
+        {/* Main pages */}
+        <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/skills" element={<SkillsPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/hire-me" element={<HireMePage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/resume" element={<ResumePage />} />
+        
+        {/* Redirect any unknown routes to home */}
+        <Route path="*" element={<Navigate to="/home" replace />} />
+      </Routes>
     </Router>
   );
 }
