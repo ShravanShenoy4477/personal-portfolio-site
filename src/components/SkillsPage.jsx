@@ -301,26 +301,29 @@ export default function SkillsPage() {
 									</span>
 									{category}
 								</h2>
-								<ul className="list-disc list-inside space-y-2">
+								<div className="space-y-3">
 									{categorySkills.map((skill) => (
-										<li key={skill.name} className="text-gray-800">
-											<div className="flex items-center gap-2">
-												<span className="font-medium">
-													{skill.name}
-												</span>
-												<span className={`px-2 py-0.5 text-[10px] font-medium rounded-full border ${getLevelColor(skill.level)}`}>
-													{skill.level}
-												</span>
-												<span className="text-xs text-gray-500">({skill.years} yrs)</span>
+										<div key={skill.name} className="text-gray-800 flex items-start gap-3">
+											<div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+											<div className="flex-1">
+												<div className="flex items-center gap-2 mb-1">
+													<span className="font-medium">
+														{skill.name}
+													</span>
+													<span className={`px-2 py-0.5 text-[10px] font-medium rounded-full border ${getLevelColor(skill.level)}`}>
+														{skill.level}
+													</span>
+													<span className="text-xs text-gray-500">({skill.years} yrs)</span>
+												</div>
+												{skill.description && (
+													<p className="text-sm text-gray-600">
+														{skill.description}
+													</p>
+												)}
 											</div>
-											{skill.description && (
-												<p className="text-sm text-gray-600 mt-0.5">
-													{skill.description}
-												</p>
-											)}
-										</li>
+										</div>
 									))}
-								</ul>
+								</div>
 							</div>
 						))}
 					</div>
