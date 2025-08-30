@@ -92,16 +92,29 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
             console.log('Calling chatbot API:', `${API_BASE_URL}${API_ENDPOINT}`);
             console.log('Request payload:', { message, session_id: currentSessionId });
             
-            const response = await fetch(`${API_BASE_URL}${API_ENDPOINT}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
+            // Try POST first, if that fails, try GET with query parameters
+            let response;
+            try {
+                response = await fetch(`${API_BASE_URL}${API_ENDPOINT}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        session_id: currentSessionId
+                    })
+                });
+            } catch (postError) {
+                console.log('POST failed, trying GET with query params...');
+                const params = new URLSearchParams({
                     message: message,
                     session_id: currentSessionId
-                })
-            });
+                });
+                response = await fetch(`${API_BASE_URL}${API_ENDPOINT}?${params}`, {
+                    method: 'GET'
+                });
+            }
 
             console.log('API Response status:', response.status);
             console.log('API Response headers:', response.headers);
