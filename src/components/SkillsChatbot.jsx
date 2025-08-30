@@ -163,7 +163,10 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
     return (
         <div className="fixed bottom-6 right-6 z-50">
             {/* Simple Robot Chatbot Icon */}
-            <div className="bg-white rounded-full shadow-lg p-4 hover:shadow-xl transition-all duration-200 cursor-pointer group">
+            <div 
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="bg-white rounded-full shadow-lg p-4 hover:shadow-xl transition-all duration-200 cursor-pointer group"
+            >
                 <div className="text-center">
                     {/* Robot Icon */}
                     <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-200">
@@ -175,6 +178,90 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
                     <p className="text-xs text-gray-600 font-medium">Ask me anything</p>
                 </div>
             </div>
+
+            {/* Chat Interface - Shows when expanded */}
+            {isExpanded && (
+                <div className="absolute bottom-20 right-0 bg-white rounded-lg shadow-xl w-80 h-96 flex flex-col border border-gray-200">
+                    {/* Header */}
+                    <div className="bg-blue-600 text-white p-4 rounded-t-lg flex justify-between items-center">
+                        <div>
+                            <h3 className="font-semibold">AI Recruiter Assistant</h3>
+                            <p className="text-sm opacity-90">Ask about skills, projects & experience</p>
+                        </div>
+                        <button
+                            onClick={() => setIsExpanded(false)}
+                            className="text-white hover:text-gray-200 transition-colors"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    {/* Messages */}
+                    <div className="flex-1 overflow-y-auto p-4 space-y-3">
+                        {messages.map((message) => (
+                            <div
+                                key={message.id}
+                                className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
+                            >
+                                <div
+                                    className={`max-w-xs px-3 py-2 rounded-lg text-sm ${
+                                        message.type === 'user'
+                                            ? 'bg-blue-600 text-white'
+                                            : 'bg-gray-100 text-gray-800'
+                                    }`}
+                                >
+                                    <p>{message.content}</p>
+                                    <p className={`text-xs mt-1 ${
+                                        message.type === 'user' ? 'text-blue-100' : 'text-gray-500'
+                                    }`}>
+                                        {message.timestamp}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                        
+                        {isLoading && (
+                            <div className="flex justify-start">
+                                <div className="bg-gray-100 text-gray-800 px-3 py-2 rounded-lg">
+                                    <div className="flex space-x-1">
+                                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        
+                        <div ref={messagesEndRef} />
+                    </div>
+
+                    {/* Input */}
+                    <div className="p-3 border-t border-gray-200">
+                        <div className="flex space-x-2">
+                            <input
+                                type="text"
+                                value={inputMessage}
+                                onChange={(e) => setInputMessage(e.target.value)}
+                                onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                                placeholder="Ask about skills, projects..."
+                                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                                disabled={isLoading}
+                            />
+                            <button
+                                onClick={handleSendMessage}
+                                disabled={isLoading || !inputMessage.trim()}
+                                className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm"
+                            >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18 9-2zm0 0v-8" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

@@ -301,7 +301,7 @@ export default function SkillsPage() {
 									</span>
 									{category}
 								</h2>
-								<div className="space-y-3">
+								<div className="space-y-3 text-left">
 									{categorySkills.map((skill) => (
 										<div key={skill.name} className="text-gray-800 flex items-start gap-3">
 											<div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
