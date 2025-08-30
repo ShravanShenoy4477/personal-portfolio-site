@@ -48,13 +48,7 @@ export default function SkillsPage() {
 					category: 'Programming Languages',
 					description: 'Voice Assistance Middleware for ABB GoFa robot, .NET Framework'
 				},
-				{
-					name: 'ABB RAPID',
-					level: 'Intermediate',
-					years: 1,
-					category: 'Programming Languages',
-					description: 'ABB robot programming via FlexPendant interface'
-				},
+
 				{
 					name: 'HTML/CSS',
 					level: 'Intermediate',
@@ -79,25 +73,25 @@ export default function SkillsPage() {
 					description: 'Robot simulation, testing, and validation environments'
 				},
 				{
-					name: 'ABB Robot Studio',
-					level: 'Intermediate',
-					years: 1,
-					category: 'Robotics',
-					description: 'ABB robot programming and simulation platform'
-				},
-				{
-					name: 'Hardware Systems',
-					level: 'Intermediate',
-					years: 2,
-					category: 'Robotics',
-					description: 'UR5 Robot, ABB GoFa, Jetson Orin Nano, Realsense D435i Cameras'
-				},
-				{
-					name: 'Core Robotics',
+					name: 'Motion Planning & Control',
 					level: 'Advanced',
 					years: 3,
 					category: 'Robotics',
-					description: 'Human-Robot Collaboration (HRC), Motion Planning (RRT*, GDA), Kinematics, Safety Evaluation'
+					description: 'RRT*, GDA algorithms, trajectory optimization, PID control, real-time control systems'
+				},
+				{
+					name: 'Human-Robot Collaboration',
+					level: 'Advanced',
+					years: 2,
+					category: 'Robotics',
+					description: 'HRC safety protocols, collaborative workspace design, human intention prediction, safety evaluation'
+				},
+				{
+					name: 'Kinematics & Dynamics',
+					level: 'Advanced',
+					years: 3,
+					category: 'Robotics',
+					description: 'Forward/inverse kinematics, Jacobian analysis, dynamic modeling, force control, impedance control'
 				},
 				
 				// Computer Vision
