@@ -1,5 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoadingPage from './components/LoadingPage';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
@@ -11,39 +10,13 @@ import ResumePage from './components/ResumePage';
 import './App.css';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Check if this is the first visit
-    const hasVisitedBefore = localStorage.getItem('hasVisitedPortfolio');
-    
-    if (!hasVisitedBefore) {
-      // First visit: show loading page for 5 seconds
-      const timer = setTimeout(() => {
-        // Mark as visited
-        localStorage.setItem('hasVisitedPortfolio', 'true');
-        // Navigate to home page (relative to current domain)
-        window.location.href = '/home';
-      }, 5000);
-      
-      return () => clearTimeout(timer);
-    } else {
-      // Not first visit: skip loading page
-      setIsLoading(false);
-    }
-  }, []);
-
-  // Show loading page on first visit
-  if (isLoading) {
-    return <LoadingPage />;
-  }
-
-  // Show the actual app after loading
   return (
     <Router>
       <Routes>
+        {/* Loading page - first route */}
+        <Route path="/" element={<LoadingPage />} />
+        
         {/* Main pages */}
-        <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/skills" element={<SkillsPage />} />
