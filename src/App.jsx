@@ -15,13 +15,25 @@ function AppContent() {
   const location = useLocation();
 
   useEffect(() => {
-    // Show loading page for 5 seconds on every route change
-    setIsLoading(true);
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 5000);
+    // Check if this is the first visit
+    const hasVisitedBefore = localStorage.getItem('hasVisitedPortfolio');
     
-    return () => clearTimeout(timer);
+    if (!hasVisitedBefore) {
+      // First visit: show loading page for 5 seconds
+      setIsLoading(true);
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+        // Mark as visited
+        localStorage.setItem('hasVisitedPortfolio', 'true');
+        // Navigate to home page
+        window.location.href = '/personal-portfolio-site/home';
+      }, 5000);
+      
+      return () => clearTimeout(timer);
+    } else {
+      // Not first visit: skip loading page
+      setIsLoading(false);
+    }
   }, [location.pathname]);
 
   // Show loading page first
