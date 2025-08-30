@@ -369,10 +369,10 @@ export default function Timeline() {
                         </button>
 
                         {/* Popup Content */}
-                        <div>
+                        <div className="space-y-4">
                             {/* Image (if exists) */}
                             {selectedItem.image && (
-                                <div className="mb-4">
+                                <div className="mb-2">
                                     <img 
                                         src={selectedItem.image} 
                                         alt={selectedItem.title}
@@ -387,120 +387,129 @@ export default function Timeline() {
                                 </div>
                             )}
                             
-                            <div className="text-sm font-medium text-gray-500 mb-2">{selectedItem.year}</div>
-                            <h3 className="text-xl font-semibold text-gray-900 mb-3">{selectedItem.title}</h3>
-                            <div className="text-sm text-gray-600 mb-4 text-justify">{selectedItem.description}</div>
+                            {/* Header Section */}
+                            <div className="text-center border-b border-gray-200 pb-3">
+                                <div className="text-sm font-medium text-gray-500 mb-1">{selectedItem.year}</div>
+                                <h3 className="text-xl font-semibold text-gray-900 mb-2">{selectedItem.title}</h3>
+                                <div className="text-sm text-gray-600 text-left">{selectedItem.description}</div>
+                            </div>
                             
-                            {/* Location */}
-                            {selectedItem.location && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">📍 Location: </span>
-                                    <span className="text-sm text-gray-600">{selectedItem.location}</span>
-                                </div>
-                            )}
-                            
-                            {/* Company */}
-                            {selectedItem.company && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">🏢 Company: </span>
-                                    <span className="text-sm text-gray-600">{selectedItem.company}</span>
-                                </div>
-                            )}
-                            
-                            {/* University */}
-                            {selectedItem.university && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">🎓 University: </span>
-                                    <span className="text-sm text-gray-600">{selectedItem.university}</span>
-                                </div>
-                            )}
-                            
-                            {/* GPA */}
-                            {selectedItem.gpa && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">📊 GPA: </span>
-                                    <span className="text-sm text-gray-600">{selectedItem.gpa}</span>
-                                </div>
-                            )}
-                            
-                            {/* Role */}
-                            {selectedItem.role && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">👤 Role: </span>
-                                    <span className="text-sm text-gray-600">{selectedItem.role}</span>
-                                </div>
-                            )}
-                            
-                            {/* Department */}
-                            {selectedItem.department && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">🏛️ Department: </span>
-                                    <span className="text-sm text-gray-600">{selectedItem.department}</span>
-                                </div>
-                            )}
-                            
-                            {/* Duration */}
-                            {selectedItem.duration && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">⏱️ Duration: </span>
-                                    <span className="text-sm text-gray-600">{selectedItem.duration}</span>
-                                </div>
-                            )}
-                            
-                            {/* Technologies */}
-                            {selectedItem.technologies && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">💻 Technologies: </span>
-                                    <div className="flex flex-wrap gap-1 mt-1">
-                                        {selectedItem.technologies.map((tech, index) => (
-                                            <span key={index} className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
-                                                {tech}
-                                            </span>
-                                        ))}
+                            {/* Info Grid */}
+                            <div className="space-y-3">
+                                {/* Location */}
+                                {selectedItem.location && (
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-sm font-medium text-gray-700 min-w-[80px]">📍 Location</span>
+                                        <span className="text-sm text-gray-600 flex-1">{selectedItem.location}</span>
                                     </div>
-                                </div>
-                            )}
-                            
-                            {/* Projects */}
-                            {selectedItem.projects && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">📁 Projects: </span>
-                                    <span className="text-sm text-gray-600">{selectedItem.projects} completed</span>
-                                </div>
-                            )}
-                            
-                            {/* Team Size */}
-                            {selectedItem.teamSize && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">👥 Team Size: </span>
-                                    <span className="text-sm text-gray-600">{selectedItem.teamSize} members</span>
-                                </div>
-                            )}
-                            
-                            {/* Funding */}
-                            {selectedItem.funding && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">💰 Funding: </span>
-                                    <span className="text-sm text-gray-600">{selectedItem.funding}</span>
-                                </div>
-                            )}
-                            
-                            {/* Achievements */}
-                            {selectedItem.achievements && (
-                                <div className="mb-3">
-                                    <span className="text-sm font-medium text-gray-700">🏆 Achievements: </span>
-                                    <div className="mt-1">
-                                        {selectedItem.achievements.map((achievement, index) => (
-                                            <div key={index} className="text-sm text-gray-600 text-justify">• {achievement}</div>
-                                        ))}
+                                )}
+                                
+                                {/* Company */}
+                                {selectedItem.company && (
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-sm font-medium text-gray-700 min-w-[80px]">🏢 Company</span>
+                                        <span className="text-sm text-gray-600 flex-1">{selectedItem.company}</span>
                                     </div>
-                                </div>
-                            )}
+                                )}
+                                
+                                {/* University */}
+                                {selectedItem.university && (
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-sm font-medium text-gray-700 min-w-[80px]">🎓 University</span>
+                                        <span className="text-sm text-gray-600 flex-1">{selectedItem.university}</span>
+                                    </div>
+                                )}
+                                
+                                {/* GPA */}
+                                {selectedItem.gpa && (
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-sm font-medium text-gray-700 min-w-[80px]">📊 GPA</span>
+                                        <span className="text-sm text-gray-600 flex-1">{selectedItem.gpa}</span>
+                                    </div>
+                                )}
+                                
+                                {/* Role */}
+                                {selectedItem.role && (
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-sm font-medium text-gray-700 min-w-[80px]">👤 Role</span>
+                                        <span className="text-sm text-gray-600 flex-1">{selectedItem.role}</span>
+                                    </div>
+                                )}
+                                
+                                {/* Department */}
+                                {selectedItem.department && (
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-sm font-medium text-gray-700 min-w-[80px]">🏛️ Department</span>
+                                        <span className="text-sm text-gray-600 flex-1">{selectedItem.department}</span>
+                                    </div>
+                                )}
+                                
+                                {/* Duration */}
+                                {selectedItem.duration && (
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-sm font-medium text-gray-700 min-w-[80px]">⏱️ Duration</span>
+                                        <span className="text-sm text-gray-600 flex-1">{selectedItem.duration}</span>
+                                    </div>
+                                )}
+                                
+                                {/* Technologies */}
+                                {selectedItem.technologies && (
+                                    <div className="space-y-2">
+                                        <span className="text-sm font-medium text-gray-700 block">💻 Technologies</span>
+                                        <div className="flex flex-wrap gap-2">
+                                            {selectedItem.technologies.map((tech, index) => (
+                                                <span key={index} className="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                                
+                                {/* Projects */}
+                                {selectedItem.projects && (
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-sm font-medium text-gray-700 min-w-[80px]">📁 Projects</span>
+                                        <span className="text-sm text-gray-600 flex-1">{selectedItem.projects} completed</span>
+                                    </div>
+                                )}
+                                
+                                {/* Team Size */}
+                                {selectedItem.teamSize && (
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-sm font-medium text-gray-700 min-w-[80px]">👥 Team Size</span>
+                                        <span className="text-sm text-gray-600 flex-1">{selectedItem.teamSize} members</span>
+                                    </div>
+                                )}
+                                
+                                {/* Funding */}
+                                {selectedItem.funding && (
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-sm font-medium text-gray-700 min-w-[80px]">💰 Funding</span>
+                                        <span className="text-sm text-gray-600 flex-1">{selectedItem.funding}</span>
+                                    </div>
+                                )}
+                                
+                                {/* Achievements */}
+                                {selectedItem.achievements && (
+                                    <div className="space-y-2">
+                                        <span className="text-sm font-medium text-gray-700 block">🏆 Achievements</span>
+                                        <div className="space-y-1">
+                                            {selectedItem.achievements.map((achievement, index) => (
+                                                <div key={index} className="text-sm text-gray-600 text-left flex items-start gap-2">
+                                                    <span className="text-blue-500 mt-1">•</span>
+                                                    <span className="flex-1">{achievement}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                             
                             {/* Main Details */}
-                            <div className="mb-4">
-                                <span className="text-sm font-medium text-gray-700">📝 Details: </span>
-                                <div className="text-sm text-gray-700 leading-relaxed mt-1 text-justify">{selectedItem.details}</div>
+                            <div className="border-t border-gray-200 pt-3">
+                                <span className="text-sm font-medium text-gray-700 block mb-2">📝 Details</span>
+                                <div className="text-sm text-gray-700 leading-relaxed text-left">{selectedItem.details}</div>
                             </div>
                         </div>
                     </div>
