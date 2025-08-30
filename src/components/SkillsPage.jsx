@@ -232,12 +232,12 @@ export default function SkillsPage() {
 			<nav className="bg-white shadow-sm border-b border-gray-200">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex justify-between h-16">
-						<div className="flex justify-between w-full">
+						<div className="flex justify-between w-full overflow-x-auto">
 							{navigationItems.map((item) => (
 								<Link
 									key={item.path}
 									to={item.path}
-									className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-200 ${
+									className={`inline-flex items-center px-2 sm:px-1 pt-1 border-b-2 text-xs sm:text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
 										location.pathname === item.path
 											? 'border-blue-500 text-blue-600'
 											: 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -254,10 +254,10 @@ export default function SkillsPage() {
 			{/* Main Content */}
 			<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 				<div className="mb-8">
-					<h1 className="text-4xl font-bold text-gray-900 mb-4 text-center">
+					<h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-center">
 						Skills & Expertise
 					</h1>
-					<p className="text-xl text-gray-600 mb-4 text-center">
+					<p className="text-lg sm:text-xl text-gray-600 mb-4 text-center">
 						Browse my technical skills and expertise across different domains
 					</p>
 					<div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-2xl mx-auto">
@@ -274,8 +274,8 @@ export default function SkillsPage() {
 				) : (
 					<div className="space-y-8">
 						{Object.entries(getCategorySkills()).map(([category, categorySkills]) => (
-							<div key={category} className="bg-white rounded-lg shadow-md p-6">
-								<h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+							<div key={category} className="bg-white rounded-lg shadow-md p-4 sm:p-6">
+								<h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 flex items-center">
 									<span className="text-blue-600 mr-3">
 										{category === 'Programming Languages' && '💻'}
 										{category === 'Robotics' && '🤖'}

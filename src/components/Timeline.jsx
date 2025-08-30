@@ -248,7 +248,7 @@ export default function Timeline() {
                 <div className="absolute top-1/2 transform -translate-y-1/2 w-full h-1 bg-blue-400"></div>
 
                 {/* Timeline Items */}
-                <div className="relative w-full h-full flex items-center justify-between px-8 min-w-max">
+                <div className="relative w-full h-full flex items-center justify-between px-4 sm:px-8 min-w-max">
                     {timelineItems.map((item, index) => (
                         <div
                             key={item.id}
@@ -299,7 +299,7 @@ export default function Timeline() {
 
                             {/* Content Card */}
                             <div 
-                                className={`w-32 bg-white rounded-lg shadow-md p-2 border border-gray-200 hover:shadow-lg transition-shadow duration-300 text-center cursor-pointer ${
+                                className={`w-24 sm:w-32 bg-white rounded-lg shadow-md p-2 border border-gray-200 hover:shadow-lg transition-shadow duration-300 text-center cursor-pointer ${
                                     item.isSpotlight ? 'ring-2 ring-blue-500 ring-opacity-50' : ''
                                 } ${animationPhase === 'spotlight' && anySpotlight && item.isSpotlight ? 'ring-4 ring-blue-400 ring-opacity-75 shadow-xl' : ''}`}
                                 style={{ 
@@ -308,7 +308,7 @@ export default function Timeline() {
                                 onClick={() => handleItemClick(item)}
                             >
                                 <div className="text-xs font-medium text-gray-500 mb-1">{item.year}</div>
-                                <div className="text-sm font-semibold text-gray-900 leading-tight">{item.title}</div>
+                                <div className="text-xs sm:text-sm font-semibold text-gray-900 leading-tight">{item.title}</div>
                             </div>
                         </div>
                     ))}
@@ -351,11 +351,11 @@ export default function Timeline() {
             {/* Popup Modal */}
             {selectedItem && (
                 <div 
-                    className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+                    className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4"
                     onClick={closePopup}
                 >
                     <div 
-                        className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 relative"
+                        className="bg-white rounded-lg shadow-xl max-w-md w-full p-4 sm:p-6 relative"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Close Button */}

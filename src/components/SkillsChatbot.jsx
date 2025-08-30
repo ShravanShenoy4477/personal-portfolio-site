@@ -161,27 +161,27 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
             {/* Simple Robot Chatbot Icon */}
             <div 
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="bg-white rounded-full shadow-lg p-4 hover:shadow-xl transition-all duration-200 cursor-pointer group"
+                className="bg-white rounded-full shadow-lg p-3 sm:p-4 hover:shadow-xl transition-all duration-200 cursor-pointer group touch-manipulation"
             >
                 <div className="text-center">
                     {/* Robot Icon */}
-                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-200">
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-200">
+                        <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
                     </div>
                     {/* Text */}
-                    <p className="text-xs text-gray-600 font-medium">Ask me anything</p>
+                    <p className="text-xs text-gray-600 font-medium leading-tight">Ask me anything</p>
                 </div>
             </div>
 
             {/* Chat Interface - Shows when expanded */}
             {isExpanded && (
-                <div className="absolute bottom-20 right-0 bg-white rounded-lg shadow-xl w-96 h-[30rem] flex flex-col border border-gray-200">
+                <div className="absolute bottom-20 right-0 bg-white rounded-lg shadow-xl w-[calc(100vw-2rem)] sm:w-96 h-[calc(100vh-8rem)] sm:h-[30rem] flex flex-col border border-gray-200">
                     {/* Header */}
                     <div className="bg-blue-600 text-white p-4 rounded-t-lg flex justify-between items-center">
                         <div>
