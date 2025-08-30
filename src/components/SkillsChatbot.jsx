@@ -161,86 +161,18 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed bottom-6 right-6 z-50" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 50 }}>
-            {/* Chat Widget - Fixed Bottom Right */}
-            <div className="bg-white rounded-lg shadow-xl w-80 h-96 flex flex-col border-4 border-red-500" style={{ width: '320px', height: '384px' }}>
-                {/* Header */}
-                <div className="bg-blue-600 text-white p-4 rounded-t-lg flex justify-between items-center">
-                    <div>
-                        <h3 className="font-semibold">AI Recruiter Assistant</h3>
-                        <p className="text-sm opacity-90">Ask about skills, projects & experience</p>
-                    </div>
-                    <button
-                        onClick={onClose}
-                        className="text-white hover:text-gray-200 transition-colors"
-                    >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        <div className="fixed bottom-6 right-6 z-50">
+            {/* Simple Robot Chatbot Icon */}
+            <div className="bg-white rounded-full shadow-lg p-4 hover:shadow-xl transition-all duration-200 cursor-pointer group">
+                <div className="text-center">
+                    {/* Robot Icon */}
+                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-200">
+                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
-                    </button>
-                </div>
-
-                {/* Messages */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-3">
-                    {messages.map((message) => (
-                        <div
-                            key={message.id}
-                            className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
-                        >
-                            <div
-                                className={`max-w-xs px-3 py-2 rounded-lg text-sm ${
-                                    message.type === 'user'
-                                        ? 'bg-blue-600 text-white'
-                                        : 'bg-gray-100 text-gray-800'
-                                }`}
-                            >
-                                <p>{message.content}</p>
-                                <p className={`text-xs mt-1 ${
-                                    message.type === 'user' ? 'text-blue-100' : 'text-gray-500'
-                                }`}>
-                                    {message.timestamp}
-                                </p>
-                            </div>
-                        </div>
-                    ))}
-                    
-                    {isLoading && (
-                        <div className="flex justify-start">
-                            <div className="bg-gray-100 text-gray-800 px-3 py-2 rounded-lg">
-                                <div className="flex space-x-1">
-                                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                    
-                    <div ref={messagesEndRef} />
-                </div>
-
-                {/* Input */}
-                <div className="p-3 border-t border-gray-200">
-                    <div className="flex space-x-2">
-                        <input
-                            type="text"
-                            value={inputMessage}
-                            onChange={(e) => setInputMessage(e.target.value)}
-                            onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-                            placeholder="Ask about skills, projects..."
-                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                            disabled={isLoading}
-                        />
-                        <button
-                            onClick={handleSendMessage}
-                            disabled={isLoading || !inputMessage.trim()}
-                            className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm"
-                        >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18 9-2zm0 0v-8" />
-                            </svg>
-                        </button>
                     </div>
+                    {/* Text */}
+                    <p className="text-xs text-gray-600 font-medium">Ask me anything</p>
                 </div>
             </div>
         </div>
