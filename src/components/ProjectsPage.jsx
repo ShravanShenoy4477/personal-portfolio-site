@@ -38,7 +38,8 @@ export default function ProjectsPage() {
             github: 'Private repository',
             artifacts: [
                 { name: 'System Architecture', type: 'documentation', path: '#' },
-                { name: 'API Documentation', type: 'documentation', path: '#' }
+                { name: 'API Documentation', type: 'documentation', path: '#' },
+                { name: 'GitHub Repository', type: 'link', path: 'https://github.com/ShravanShenoy4477/personal-chatbot-backend' }
             ]
         },
         {
