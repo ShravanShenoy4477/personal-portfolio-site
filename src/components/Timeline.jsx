@@ -20,8 +20,8 @@ export default function Timeline() {
             duration: '9 months + 22 years ongoing',
             image: 'https://res.cloudinary.com/dsyshe328/image/upload/v1756282344/photo1.jpg' // Baby/child photo
         },
-        {
-            id: 2, 
+                {
+            id: 2,
             year: '2010',
             title: 'Inspirational Movie',
             description: 'Transformers',
@@ -33,7 +33,7 @@ export default function Timeline() {
             image: 'https://res.cloudinary.com/dsyshe328/image/upload/v1756282344/bumblebee_rspeip.jpg'
         },
         {
-            id: 2,
+            id: 3,
             year: '2014',
             title: 'First Robotics Competition',
             description: 'Indian Robotics Olympiad - IRO',
@@ -44,7 +44,7 @@ export default function Timeline() {
             duration: '3 months'
         },
         {
-            id: 3,
+            id: 4,
             year: '2023',
             title: 'R&D intern',
             description: 'Robotics and Automation',
@@ -58,7 +58,7 @@ export default function Timeline() {
             location: 'Bangalore, India',
         },
         {
-            id: 4,
+            id: 5,
             year: '2023',
             title: 'Undergraduate Researcher',
             description: 'Worked in India’s top research institutes',
@@ -72,7 +72,7 @@ export default function Timeline() {
             image: 'https://res.cloudinary.com/dsyshe328/image/upload/v1756282342/iisc-internship_owv7we.jpg'
         },
         {
-            id: 5,
+            id: 6,
             year: '2024',
             title: 'Software Developer Intern',
             description: 'Building at startup speed, in a company focussed on vision-based driver monitoring systems',

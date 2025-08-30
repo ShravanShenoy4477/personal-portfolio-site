@@ -29,10 +29,10 @@ export default function SkillsPage() {
 				// Programming Languages
 				{
 					name: 'Python',
-					level: 'Advanced',
+					level: 'Intermediate',
 					years: 4,
 					category: 'Programming Languages',
-					description: 'Machine Learning (PyTorch, TensorFlow, Scikit-learn), Computer Vision (OpenCV, Mediapipe), Robotics (ROS2), Web Development (Flask)'
+					description: 'Machine Learning (PyTorch, Scikit-learn), Computer Vision (OpenCV, Mediapipe), Robotics (ROS2), Web Development (Flask)'
 				},
 				{
 					name: 'C++',
@@ -43,7 +43,7 @@ export default function SkillsPage() {
 				},
 				{
 					name: 'C#',
-					level: 'Intermediate',
+					level: 'Beginner',
 					years: 1,
 					category: 'Programming Languages',
 					description: 'Voice Assistance Middleware for ABB GoFa robot, .NET Framework'
@@ -51,7 +51,7 @@ export default function SkillsPage() {
 
 				{
 					name: 'HTML/CSS',
-					level: 'Intermediate',
+					level: 'Beginner',
 					years: 2,
 					category: 'Programming Languages',
 					description: 'Bootstrap, Flask GUI development for lung cancer prediction project'
@@ -60,7 +60,7 @@ export default function SkillsPage() {
 				// Robotics
 				{
 					name: 'ROS (Noetic & Humble)',
-					level: 'Advanced',
+					level: 'Intermediate',
 					years: 3,
 					category: 'Robotics',
 					description: 'Robot Operating System, MoveIt, motion planning, trajectory optimization'
@@ -74,51 +74,45 @@ export default function SkillsPage() {
 				},
 				{
 					name: 'Motion Planning & Control',
-					level: 'Advanced',
+					level: 'Intermediate',
 					years: 3,
 					category: 'Robotics',
 					description: 'RRT*, GDA algorithms, trajectory optimization, PID control, real-time control systems'
 				},
 				{
 					name: 'Human-Robot Collaboration',
-					level: 'Advanced',
+					level: 'Intermediate',
 					years: 2,
 					category: 'Robotics',
 					description: 'HRC safety protocols, collaborative workspace design, human intention prediction, safety evaluation'
 				},
-				{
-					name: 'Kinematics & Dynamics',
-					level: 'Advanced',
-					years: 3,
-					category: 'Robotics',
-					description: 'Forward/inverse kinematics, Jacobian analysis, dynamic modeling, force control, impedance control'
-				},
+
 				
 				// Computer Vision
 				{
 					name: 'YOLO & SAM2',
-					level: 'Advanced',
+					level: 'Intermediate',
 					years: 2,
 					category: 'Computer Vision',
 					description: 'YOLO v7, Segment Anything Model 2.0, MobileSAM, FastSAM variants'
 				},
 				{
 					name: 'OpenCV & Mediapipe',
-					level: 'Advanced',
+					level: 'Intermediate',
 					years: 3,
 					category: 'Computer Vision',
 					description: 'Image processing, pose estimation, gesture recognition, real-time applications'
 				},
 				{
 					name: 'PyTorch & CUDA',
-					level: 'Advanced',
+					level: 'Intermediate',
 					years: 3,
 					category: 'Computer Vision',
 					description: 'Deep learning models, GPU programming, TensorRT, ONNX optimization'
 				},
 				{
 					name: 'Instance Segmentation',
-					level: 'Advanced',
+					level: 'Intermediate',
 					years: 2,
 					category: 'Computer Vision',
 					description: 'Mask R-CNN, OWL-ViT, NanoOWL, real-time object tracking'
@@ -133,22 +127,22 @@ export default function SkillsPage() {
 				
 				// Machine Learning
 				{
-					name: 'PyTorch & TensorFlow',
-					level: 'Advanced',
+					name: 'PyTorch',
+					level: 'Intermediate',
 					years: 3,
 					category: 'Machine Learning',
-					description: 'Deep learning frameworks, neural network development, model training'
+					description: 'Deep learning framework, neural network development, model training'
 				},
 				{
 					name: 'Scikit-learn & Pandas',
-					level: 'Advanced',
+					level: 'Intermediate',
 					years: 3,
 					category: 'Machine Learning',
 					description: 'Classical ML, ensemble learning, data preprocessing, feature engineering'
 				},
 				{
 					name: 'Ensemble Learning',
-					level: 'Intermediate',
+					level: 'Basic',
 					years: 2,
 					category: 'Machine Learning',
 					description: 'Random Forest, Gradient Boosting, AdaBoost, survival analysis'
@@ -185,17 +179,17 @@ export default function SkillsPage() {
 				},
 				{
 					name: 'Git & Version Control',
-					level: 'Advanced',
+					level: 'Intermediate',
 					years: 4,
 					category: 'Software Development',
 					description: 'Collaborative development, branching strategies, project management'
 				},
 				{
-					name: 'Development Tools',
+					name: 'Linux Shell Scripting',
 					level: 'Intermediate',
 					years: 3,
 					category: 'Software Development',
-					description: 'Visual Studio, VS Code, Jupyter Notebook, algorithm development'
+					description: 'Bash scripting, automation, system administration, deployment scripts'
 				},
 				{
 					name: 'Documentation & APIs',
@@ -237,6 +231,8 @@ export default function SkillsPage() {
 				return 'bg-yellow-100 text-yellow-800 border-yellow-200';
 			case 'beginner':
 				return 'bg-blue-100 text-blue-800 border-blue-200';
+			case 'basic':
+				return 'bg-purple-100 text-purple-800 border-purple-200';
 			default:
 				return 'bg-gray-100 text-gray-800 border-gray-200';
 		}
