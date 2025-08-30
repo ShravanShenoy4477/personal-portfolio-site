@@ -41,13 +41,7 @@ export default function SkillsPage() {
 					category: 'Programming Languages',
 					description: 'Performance-critical robotics applications, ROS Noetic framework modules'
 				},
-				{
-					name: 'C#',
-					level: 'Beginner',
-					years: 1,
-					category: 'Programming Languages',
-					description: 'Voice Assistance Middleware for ABB GoFa robot, .NET Framework'
-				},
+
 
 				{
 					name: 'HTML/CSS',
@@ -73,11 +67,11 @@ export default function SkillsPage() {
 					description: 'Robot simulation, testing, and validation environments'
 				},
 				{
-					name: 'Motion Planning & Control',
+					name: 'Motion Planning',
 					level: 'Intermediate',
 					years: 3,
 					category: 'Robotics',
-					description: 'RRT*, GDA algorithms, trajectory optimization, PID control, real-time control systems'
+					description: 'RRT*, GDA algorithms, trajectory optimization, path planning algorithms'
 				},
 				{
 					name: 'Human-Robot Collaboration',
@@ -163,13 +157,7 @@ export default function SkillsPage() {
 				},
 				
 				// Software Development
-				{
-					name: '.NET Framework',
-					level: 'Intermediate',
-					years: 1,
-					category: 'Software Development',
-					description: 'Windows UWP development, ABB robot middleware applications'
-				},
+
 				{
 					name: 'Flask & Web Development',
 					level: 'Intermediate',
