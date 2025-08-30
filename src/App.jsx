@@ -22,8 +22,8 @@ function App() {
       const timer = setTimeout(() => {
         // Mark as visited
         localStorage.setItem('hasVisitedPortfolio', 'true');
-        // Navigate to home page
-        window.location.href = '/personal-portfolio-site/home';
+        // Navigate to home page (relative to current domain)
+        window.location.href = '/home';
       }, 5000);
       
       return () => clearTimeout(timer);
