@@ -83,7 +83,7 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
     const callChatbotAPI = async (message) => {
         // Use the actual Railway API URL
         const API_BASE_URL = 'https://web-production-4fa536.up.railway.app';
-        const API_ENDPOINT = '/chat';
+        const API_ENDPOINT = '/api/chat';
         
         // Use persistent session ID for conversation continuity
         const currentSessionId = sessionId || `website_general_${Date.now()}`;
