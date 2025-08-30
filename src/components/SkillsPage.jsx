@@ -269,15 +269,15 @@ export default function SkillsPage() {
 
 			{/* Main Content */}
 			<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-				<div className="text-center mb-8">
-					<h1 className="text-4xl font-bold text-gray-900 mb-4">
+				<div className="mb-8">
+					<h1 className="text-4xl font-bold text-gray-900 mb-4 text-center">
 						Skills & Expertise
 					</h1>
-					<p className="text-xl text-gray-600 mb-4">
+					<p className="text-xl text-gray-600 mb-4 text-center">
 						Browse my technical skills and expertise across different domains
 					</p>
 					<div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-2xl mx-auto">
-						<p className="text-sm text-blue-800">
+						<p className="text-sm text-blue-800 text-center">
 							💬 <strong>Chat with me:</strong> Use the chatbot widget at the bottom right to ask about any skill, project, or experience!
 						</p>
 					</div>
