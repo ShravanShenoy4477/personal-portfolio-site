@@ -24,67 +24,195 @@ export default function SkillsPage() {
 
 	const fetchSkills = async () => {
 		try {
-			// For now, using mock data. Replace with actual API call
-			const mockSkills = [
+			// Comprehensive skills based on actual experience
+			const comprehensiveSkills = [
+				// Programming Languages
 				{
 					name: 'Python',
 					level: 'Advanced',
 					years: 4,
 					category: 'Programming Languages',
-					description: 'Robotics, Computer Vision, Machine Learning'
+					description: 'Machine Learning (PyTorch, TensorFlow, Scikit-learn), Computer Vision (OpenCV, Mediapipe), Robotics (ROS2), Web Development (Flask)'
 				},
 				{
 					name: 'C++',
 					level: 'Intermediate',
 					years: 2,
 					category: 'Programming Languages',
-					description: 'Real-time Control Systems, Embedded Systems'
+					description: 'Performance-critical robotics applications, ROS Noetic framework modules'
 				},
 				{
-					name: 'JavaScript',
+					name: 'C#',
+					level: 'Intermediate',
+					years: 1,
+					category: 'Programming Languages',
+					description: 'Voice Assistance Middleware for ABB GoFa robot, .NET Framework'
+				},
+				{
+					name: 'ABB RAPID',
+					level: 'Intermediate',
+					years: 1,
+					category: 'Programming Languages',
+					description: 'ABB robot programming via FlexPendant interface'
+				},
+				{
+					name: 'HTML/CSS',
+					level: 'Intermediate',
+					years: 2,
+					category: 'Programming Languages',
+					description: 'Bootstrap, Flask GUI development for lung cancer prediction project'
+				},
+				
+				// Robotics
+				{
+					name: 'ROS (Noetic & Humble)',
 					level: 'Advanced',
 					years: 3,
-					category: 'Programming Languages',
-					description: 'Web Development, React, Node.js'
+					category: 'Robotics',
+					description: 'Robot Operating System, MoveIt, motion planning, trajectory optimization'
 				},
 				{
-					name: 'ROS (Robot Operating System)',
+					name: 'Gazebo & Isaac Lab',
 					level: 'Intermediate',
 					years: 2,
 					category: 'Robotics',
-					description: 'Autonomous Navigation, Sensor Fusion'
+					description: 'Robot simulation, testing, and validation environments'
 				},
 				{
-					name: 'OpenCV',
+					name: 'ABB Robot Studio',
+					level: 'Intermediate',
+					years: 1,
+					category: 'Robotics',
+					description: 'ABB robot programming and simulation platform'
+				},
+				{
+					name: 'Hardware Systems',
+					level: 'Intermediate',
+					years: 2,
+					category: 'Robotics',
+					description: 'UR5 Robot, ABB GoFa, Jetson Orin Nano, Realsense D435i Cameras'
+				},
+				{
+					name: 'Core Robotics',
+					level: 'Advanced',
+					years: 3,
+					category: 'Robotics',
+					description: 'Human-Robot Collaboration (HRC), Motion Planning (RRT*, GDA), Kinematics, Safety Evaluation'
+				},
+				
+				// Computer Vision
+				{
+					name: 'YOLO & SAM2',
+					level: 'Advanced',
+					years: 2,
+					category: 'Computer Vision',
+					description: 'YOLO v7, Segment Anything Model 2.0, MobileSAM, FastSAM variants'
+				},
+				{
+					name: 'OpenCV & Mediapipe',
 					level: 'Advanced',
 					years: 3,
 					category: 'Computer Vision',
-					description: 'Image Processing, Object Detection'
+					description: 'Image processing, pose estimation, gesture recognition, real-time applications'
 				},
 				{
-					name: 'TensorFlow',
+					name: 'PyTorch & CUDA',
+					level: 'Advanced',
+					years: 3,
+					category: 'Computer Vision',
+					description: 'Deep learning models, GPU programming, TensorRT, ONNX optimization'
+				},
+				{
+					name: 'Instance Segmentation',
+					level: 'Advanced',
+					years: 2,
+					category: 'Computer Vision',
+					description: 'Mask R-CNN, OWL-ViT, NanoOWL, real-time object tracking'
+				},
+				{
+					name: 'Model Optimization',
+					level: 'Intermediate',
+					years: 2,
+					category: 'Computer Vision',
+					description: 'GPU profiling, benchmarking, edge device deployment, Jetson optimization'
+				},
+				
+				// Machine Learning
+				{
+					name: 'PyTorch & TensorFlow',
+					level: 'Advanced',
+					years: 3,
+					category: 'Machine Learning',
+					description: 'Deep learning frameworks, neural network development, model training'
+				},
+				{
+					name: 'Scikit-learn & Pandas',
+					level: 'Advanced',
+					years: 3,
+					category: 'Machine Learning',
+					description: 'Classical ML, ensemble learning, data preprocessing, feature engineering'
+				},
+				{
+					name: 'Ensemble Learning',
 					level: 'Intermediate',
 					years: 2,
 					category: 'Machine Learning',
-					description: 'Neural Networks, Model Training'
+					description: 'Random Forest, Gradient Boosting, AdaBoost, survival analysis'
 				},
 				{
-					name: 'Git',
-					level: 'Advanced',
-					years: 4,
-					category: 'Development Tools',
-					description: 'Version Control, Collaboration'
+					name: 'Data Analysis',
+					level: 'Intermediate',
+					years: 2,
+					category: 'Machine Learning',
+					description: 'NumPy, Matplotlib, statistical analysis, model evaluation'
 				},
 				{
-					name: 'Docker',
+					name: 'NLP Concepts',
+					level: 'Beginner',
+					years: 1,
+					category: 'Machine Learning',
+					description: 'Natural Language Processing fundamentals, conceptual understanding'
+				},
+				
+				// Software Development
+				{
+					name: '.NET Framework',
 					level: 'Intermediate',
 					years: 1,
-					category: 'Development Tools',
-					description: 'Containerization, Deployment'
+					category: 'Software Development',
+					description: 'Windows UWP development, ABB robot middleware applications'
+				},
+				{
+					name: 'Flask & Web Development',
+					level: 'Intermediate',
+					years: 2,
+					category: 'Software Development',
+					description: 'Web applications, API development, GUI interfaces'
+				},
+				{
+					name: 'Git & Version Control',
+					level: 'Advanced',
+					years: 4,
+					category: 'Software Development',
+					description: 'Collaborative development, branching strategies, project management'
+				},
+				{
+					name: 'Development Tools',
+					level: 'Intermediate',
+					years: 3,
+					category: 'Software Development',
+					description: 'Visual Studio, VS Code, Jupyter Notebook, algorithm development'
+				},
+				{
+					name: 'Documentation & APIs',
+					level: 'Intermediate',
+					years: 2,
+					category: 'Software Development',
+					description: 'Technical documentation, API integration, project specifications'
 				}
 			];
 			
-			setSkills(mockSkills);
+			setSkills(comprehensiveSkills);
 			setIsLoading(false);
 		} catch (error) {
 			console.error('Error fetching skills:', error);
