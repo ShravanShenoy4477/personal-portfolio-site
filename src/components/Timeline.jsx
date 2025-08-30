@@ -18,7 +18,7 @@ export default function Timeline() {
             company: null,
             location: 'Bangalore, India',
             duration: '9 months + 22 years ongoing',
-            image: 'https://res.cloudinary.com/dsyshe328/image/upload/v1756282342/iisc-internship_owv7we.jpg' // Optional image field
+            image: 'https://res.cloudinary.com/dsyshe328/image/upload/v1756282344/photo1.jpg' // Baby/child photo
         },
         {
             id: 2, 
