@@ -181,7 +181,7 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
 
             {/* Chat Interface - Shows when expanded */}
             {isExpanded && (
-                <div className="absolute bottom-20 right-0 bg-white rounded-lg shadow-xl w-80 h-96 flex flex-col border border-gray-200">
+                <div className="absolute bottom-20 right-0 bg-white rounded-lg shadow-xl w-96 h-[30rem] flex flex-col border border-gray-200">
                     {/* Header */}
                     <div className="bg-blue-600 text-white p-4 rounded-t-lg flex justify-between items-center">
                         <div>
