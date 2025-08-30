@@ -283,15 +283,27 @@ const HireMePage = () => {
               <div className="space-y-3 text-gray-300">
                 <p className="flex items-center">
                   <span className="text-blue-400 mr-3">📧</span>
-                  Email: shravan.shenoy@example.com
+                  Email: shravan.shenoy111@gmail.com
                 </p>
                 <p className="flex items-center">
                   <span className="text-blue-400 mr-3">💼</span>
-                  LinkedIn: linkedin.com/in/shravanshenoy
+                  LinkedIn: linkedin.com/in/shravan-shenoy-8470a621a
                 </p>
                 <p className="flex items-center">
                   <span className="text-blue-400 mr-3">🐙</span>
-                  GitHub: github.com/shravanshenoy
+                  GitHub: github.com/ShravanShenoy4477
+                </p>
+                <p className="flex items-center">
+                  <span className="text-blue-400 mr-3">🌐</span>
+                  Website: shravanshenoy4477.github.io
+                </p>
+                <p className="flex items-center">
+                  <span className="text-blue-400 mr-3">📱</span>
+                  Phone: (213) 477-0602
+                </p>
+                <p className="flex items-center">
+                  <span className="text-blue-400 mr-3">📍</span>
+                  Location: Los Angeles, CA
                 </p>
               </div>
             </div>
