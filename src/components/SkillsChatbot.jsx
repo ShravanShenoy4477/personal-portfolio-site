@@ -133,12 +133,15 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
         }
     };
 
+    // Debug logging
+    console.log('SkillsChatbot render:', { isOpen, messagesCount: messages.length });
+
     if (!isOpen) return null;
 
     return (
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-6 right-6 z-50" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 50 }}>
             {/* Chat Widget - Fixed Bottom Right */}
-            <div className="bg-white rounded-lg shadow-xl w-80 h-96 flex flex-col border border-gray-200">
+            <div className="bg-white rounded-lg shadow-xl w-80 h-96 flex flex-col border-4 border-red-500" style={{ width: '320px', height: '384px' }}>
                 {/* Header */}
                 <div className="bg-blue-600 text-white p-4 rounded-t-lg flex justify-between items-center">
                     <div>
