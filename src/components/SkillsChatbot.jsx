@@ -89,6 +89,9 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
         const currentSessionId = sessionId || `website_general_${Date.now()}`;
         
         try {
+            console.log('Calling chatbot API:', `${API_BASE_URL}${API_ENDPOINT}`);
+            console.log('Request payload:', { message, session_id: currentSessionId });
+            
             const response = await fetch(`${API_BASE_URL}${API_ENDPOINT}`, {
                 method: 'POST',
                 headers: {
@@ -100,36 +103,39 @@ const SkillsChatbot = ({ isOpen, onClose }) => {
                 })
             });
 
+            console.log('API Response status:', response.status);
+            console.log('API Response headers:', response.headers);
+
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                const errorText = await response.text();
+                console.error('API Error response:', errorText);
+                throw new Error(`HTTP error! status: ${response.status}, body: ${errorText}`);
             }
 
             const data = await response.json();
-            return data.response;
+            console.log('API Response data:', data);
+            
+            if (data.response) {
+                return data.response;
+            } else {
+                console.error('API response missing "response" field:', data);
+                throw new Error('Invalid API response format');
+            }
         } catch (error) {
             console.error('Chatbot API error:', error);
+            console.error('Full error details:', {
+                message: error.message,
+                stack: error.stack,
+                name: error.name
+            });
             
-            // Fallback responses if API is not available
-            const fallbackResponses = {
-                'research': `I'm currently working on cutting-edge research in robot perception at Dynamic Robotics and Control Lab, USC. My focus is on real-time object state estimation using vision-language models and segmentation pipelines.`,
-                'experience': `I have extensive experience in robotics, computer vision, and AI/ML. I've worked at ABB, IISc, and Netradyne Technologies on various robotics and automation projects.`,
-                'projects': `Some of my key projects include the ICRA METRICS ADAPT Challenge (winners), Robothon competition (top 10), and developing vision stacks for humanoid robots.`,
-                'skills': `My technical skills include Python, C++, ROS, OpenCV, PyTorch, CUDA, and various robotics frameworks. I specialize in computer vision and machine learning for robotics applications.`,
-                'default': `I'm a robotics researcher and software developer with expertise in computer vision, AI/ML, and robotics. I'm currently pursuing research at USC's Dynamic Robotics and Control Lab.`
-            };
-
-            const lowerMessage = message.toLowerCase();
-            if (lowerMessage.includes('research') || lowerMessage.includes('current') || lowerMessage.includes('drc')) {
-                return fallbackResponses.research;
-            } else if (lowerMessage.includes('experience') || lowerMessage.includes('work')) {
-                return fallbackResponses.experience;
-            } else if (lowerMessage.includes('project') || lowerMessage.includes('competition')) {
-                return fallbackResponses.projects;
-            } else if (lowerMessage.includes('skill') || lowerMessage.includes('technology')) {
-                return fallbackResponses.skills;
-            } else {
-                return fallbackResponses.default;
+            // Only use fallback if it's a network/API error, not a parsing error
+            if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                return "I'm having trouble connecting to my knowledge base right now. Please try again in a moment.";
             }
+            
+            // For other errors, be more specific
+            return `I encountered an error: ${error.message}. Please try again or contact support if the issue persists.`;
         }
     };
 
