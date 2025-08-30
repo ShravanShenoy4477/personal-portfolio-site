@@ -7,14 +7,14 @@ export default function ProjectsPage() {
     const [selectedProject, setSelectedProject] = useState(null);
     const [videoPopup, setVideoPopup] = useState({ show: false, src: '', title: '' });
     
-    const navigationItems = [
-        { label: 'Home', path: '/home' },
-        { label: 'About Me', path: '/about' },
-        { label: 'Skills', path: '/skills' },
-        { label: 'Projects', path: '/projects' },
-        { label: 'Blog / Opinions', path: '/blog' },
-        { label: 'Resume', path: '/resume' }
-    ];
+    	const navigationItems = [
+		{ label: 'Home', path: '/home' },
+		{ label: 'About Me', path: '/about' },
+		{ label: 'Skills', path: '/skills' },
+		{ label: 'Projects', path: '/projects' },
+		{ label: 'Resume', path: '/resume' },
+		{ label: 'Blog / Opinions', path: '/blog' }
+	];
 
     const projects = [
         {

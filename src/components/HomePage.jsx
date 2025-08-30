@@ -5,14 +5,14 @@ import Timeline from './Timeline';
 export default function HomePage() {
     const location = useLocation();
     
-    const navigationItems = [
-        { label: 'Home', path: '/home' },
-        { label: 'About Me', path: '/about' },
-        { label: 'Skills', path: '/skills' },
-        { label: 'Projects', path: '/projects' },
-        { label: 'Blog / Opinions', path: '/blog' },
-        { label: 'Resume', path: '/resume' }
-    ];
+    	const navigationItems = [
+		{ label: 'Home', path: '/home' },
+		{ label: 'About Me', path: '/about' },
+		{ label: 'Skills', path: '/skills' },
+		{ label: 'Projects', path: '/projects' },
+		{ label: 'Resume', path: '/resume' },
+		{ label: 'Blog / Opinions', path: '/blog' }
+	];
 
     return (
         <div className="min-h-screen bg-[#fefae0]">

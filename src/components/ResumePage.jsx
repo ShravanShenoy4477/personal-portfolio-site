@@ -7,14 +7,14 @@ export default function ResumePage() {
     const [pdfLoaded, setPdfLoaded] = useState(false);
     const [pdfError, setPdfError] = useState(false);
     
-    const navigationItems = [
-        { label: 'Home', path: '/home' },
-        { label: 'About Me', path: '/about' },
-        { label: 'Skills', path: '/skills' },
-        { label: 'Projects', path: '/projects' },
-        { label: 'Blog / Opinions', path: '/blog' },
-        { label: 'Resume', path: '/resume' }
-    ];
+    	const navigationItems = [
+		{ label: 'Home', path: '/home' },
+		{ label: 'About Me', path: '/about' },
+		{ label: 'Skills', path: '/skills' },
+		{ label: 'Projects', path: '/projects' },
+		{ label: 'Resume', path: '/resume' },
+		{ label: 'Blog / Opinions', path: '/blog' }
+	];
 
     const handlePdfLoad = () => {
         setPdfLoaded(true);

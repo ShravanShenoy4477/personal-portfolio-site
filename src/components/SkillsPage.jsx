@@ -14,8 +14,8 @@ export default function SkillsPage() {
 		{ label: 'About Me', path: '/about' },
 		{ label: 'Skills', path: '/skills' },
 		{ label: 'Projects', path: '/projects' },
-		{ label: 'Blog / Opinions', path: '/blog' },
-		{ label: 'Resume', path: '/resume' }
+		{ label: 'Resume', path: '/resume' },
+		{ label: 'Blog / Opinions', path: '/blog' }
 	];
 
 	useEffect(() => {
