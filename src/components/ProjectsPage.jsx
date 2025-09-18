@@ -44,6 +44,32 @@ export default function ProjectsPage() {
         },
         {
             id: 2,
+            title: 'Task-Invariant Robot Learning Framework',
+            description: 'Research project developing a modular robot learning framework using distilled vision foundation models for sim-to-real transfer.',
+            details: 'This project develops a task-invariant robot learning framework by leveraging distilled vision foundation models (VFMs), primarily based on DINOv3 and Theia architectures. The core innovation is decoupling perception from control to enable modular and transferable reinforcement learning policies that do not require retraining from scratch for every new robotic task or environment.',
+            icon: '🧠',
+            achievements: [
+                'Benchmarking pipeline comparing ConvNeXt, ViT-Tiny, and Theia-Tiny models',
+                'Simulation and real-world datasets for soccer ball and table objects',
+                'Comprehensive feature evaluation using CKA, MMD, CORAL, and Proxy A-distance metrics',
+                'Visualization pipeline with t-SNE and UMAP for cross-domain analysis',
+                'Modular, reproducible codebase for systematic experimentation'
+            ],
+            duration: 'Ongoing',
+            location: 'USC Dynamic Robotics and Control Lab',
+            type: 'Research',
+            category: 'Computer Vision & Robotics',
+            status: 'Active Development',
+            github: 'Open-source repository',
+            technologies: ['PyTorch', 'DINOv3', 'Theia', 'PyBullet', 'CUDA', 'Python', 't-SNE', 'UMAP'],
+            artifacts: [
+                { name: 'GitHub Repository', type: 'link', path: 'https://github.com/ShravanShenoy4477/env_feedback' },
+                { name: 'Benchmarking Pipeline', type: 'documentation', path: '#' },
+                { name: 'Feature Analysis Results', type: 'documentation', path: '#' }
+            ]
+        },
+        {
+            id: 3,
             title: 'Open-Source Vision Stack',
             description: 'Currently implementing an open-source vision stack at Dynamic Robotics and Control Lab, USC.',
             details: 'Working on developing a vision stack for an open-source humanoid robot platform that will be used by the other researchers as a plug-and-play modular tool, on top of which they can build their own applications. The project involves implementing state-of-the-art computer vision algorithms, creating comprehensive documentation, and ensuring the stack is easily deployable on various humanoid platforms.',
@@ -54,11 +80,13 @@ export default function ProjectsPage() {
             type: 'Research & Development',
             category: 'Computer Vision',
             status: 'Currently in development',
-            github: 'Will be open-sourced upon completion',
-            artifacts: ["In Progress"]
+            github: 'Open-source repository',
+            artifacts: [
+                { name: 'GitHub Repository', type: 'link', path: 'https://github.com/junhengl/hector_mini' }
+            ]
         },
         {
-            id: 3,
+            id: 4,
             title: 'Robothon E-Waste Segregation Competition',
             description: 'International robotics competition focused on autonomous navigation and object manipulation challenges.',
             details: 'Participated in an international robotics competition where I implemented object detection algorithms for autonomously navigating a 6-DoF manipulator to perform object manipulation and waste segregation tasks, on a board provided by the competition organizers.',
@@ -73,7 +101,7 @@ export default function ProjectsPage() {
             ]
         },
         {
-            id: 4,
+            id: 5,
             title: 'ICRA METRICS ADAPT Challenge',
             description: 'International Conference on Robotics and Automation challenge focusing on advanced robotic manipulation and perception tasks.',
             details: 'Developed a image segmentation pipeline to detect and autonomously assemble a bevel gear assembly from scratch using a 6-DoF manipulator. The project involved developing a vision pipeline to detect the gear parts and a manipulation pipeline to autonomously assemble the gear.',
@@ -90,7 +118,7 @@ export default function ProjectsPage() {
             ]
         },
         {
-            id: 5,
+            id: 6,
             title: 'Lung Cancer Metastasis Project',
             description: 'Research project focused on developing machine learning models to predict and analyze lung cancer metastasis patterns using medical imaging data.',
             details: 'Developed machine learning models to predict and analyze lung cancer metastasis patterns using medical imaging data. The research involved extensive data analysis, model development, and validation. Successfully published findings in a peer-reviewed journal.',
@@ -106,7 +134,7 @@ export default function ProjectsPage() {
             ]
         },
         {
-            id: 6,
+            id: 7,
             title: 'Formula Student India',
             description: 'Formula-One style collegiate racing competition focused on design and engineering principles',
             details: 'Led the sponsorship and vehicle interface teams, raising $10,000 in sponsorship and designing a new steering wheel and pneumatic gear shift. Placed 1st in the Business Plan competition and 2nd in the Engineering Design competition.',

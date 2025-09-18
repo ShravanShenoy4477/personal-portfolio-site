@@ -28,7 +28,7 @@ export default function ResumePage() {
 
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = 'https://res.cloudinary.com/dsyshe328/image/upload/v1756282338/resume_ilapc4.pdf';
+        link.href = 'https://res.cloudinary.com/dsyshe328/image/upload/v1758223694/resume_ilapc4.pdf';
         link.download = 'Shravan_Shenoy_Resume.pdf';
         document.body.appendChild(link);
         link.click();
@@ -137,7 +137,7 @@ export default function ResumePage() {
                             
                             {/* PDF Embed */}
                             <iframe
-                                src="https://res.cloudinary.com/dsyshe328/image/upload/v1756282338/resume_ilapc4.pdf"
+                                src="https://res.cloudinary.com/dsyshe328/image/upload/v1758223694/resume_ilapc4.pdf"
                                 className="w-full h-[800px] sm:h-[900px] lg:h-[1000px] border-0"
                                 onLoad={handlePdfLoad}
                                 onError={handlePdfError}
