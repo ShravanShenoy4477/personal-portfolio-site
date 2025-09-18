@@ -19,31 +19,6 @@ export default function ProjectsPage() {
     const projects = [
         {
             id: 1,
-            title: 'LLM-Powered Recruiter Chatbot & Coaching System',
-            description: 'Enterprise-grade AI chatbot system for professional recruiter interactions with advanced knowledge management capabilities.',
-            details: 'Developed a production-ready, enterprise-grade chatbot that combines cutting-edge LLM technology with robust backend infrastructure. The system features multi-stage search capabilities, intelligent document processing, and continuous knowledge base evolution, making it suitable for professional recruiter interactions and automated coaching.',
-            icon: '🤖',
-            achievements: [
-                'Multi-stage search with semantic and metadata routing',
-                'Advanced document processing (PDF, DOCX, CSV, TXT, Images)',
-                'Intelligent chunking with context preservation',
-                'Vector database integration with ChromaDB',
-                'Production-ready FastAPI backend'
-            ],
-            duration: '3 months',
-            location: 'Personal Project',
-            type: 'AI/ML',
-            category: 'NLP',
-            status: 'Production Ready',
-            github: 'Private repository',
-            artifacts: [
-                { name: 'System Architecture', type: 'documentation', path: '#' },
-                { name: 'API Documentation', type: 'documentation', path: '#' },
-                { name: 'GitHub Repository', type: 'link', path: 'https://github.com/ShravanShenoy4477/personal-chatbot-backend' }
-            ]
-        },
-        {
-            id: 2,
             title: 'Task-Invariant Robot Learning Framework',
             description: 'Research project developing a modular robot learning framework using distilled vision foundation models for sim-to-real transfer.',
             details: 'This project develops a task-invariant robot learning framework by leveraging distilled vision foundation models (VFMs), primarily based on DINOv3 and Theia architectures. The core innovation is decoupling perception from control to enable modular and transferable reinforcement learning policies that do not require retraining from scratch for every new robotic task or environment.',
@@ -69,7 +44,7 @@ export default function ProjectsPage() {
             ]
         },
         {
-            id: 3,
+            id: 2,
             title: 'Open-Source Vision Stack',
             description: 'Currently implementing an open-source vision stack at Dynamic Robotics and Control Lab, USC.',
             details: 'Working on developing a vision stack for an open-source humanoid robot platform that will be used by the other researchers as a plug-and-play modular tool, on top of which they can build their own applications. The project involves implementing state-of-the-art computer vision algorithms, creating comprehensive documentation, and ensuring the stack is easily deployable on various humanoid platforms.',
@@ -86,7 +61,7 @@ export default function ProjectsPage() {
             ]
         },
         {
-            id: 4,
+            id: 3,
             title: 'Robothon E-Waste Segregation Competition',
             description: 'International robotics competition focused on autonomous navigation and object manipulation challenges.',
             details: 'Participated in an international robotics competition where I implemented object detection algorithms for autonomously navigating a 6-DoF manipulator to perform object manipulation and waste segregation tasks, on a board provided by the competition organizers.',
@@ -101,7 +76,7 @@ export default function ProjectsPage() {
             ]
         },
         {
-            id: 5,
+            id: 4,
             title: 'ICRA METRICS ADAPT Challenge',
             description: 'International Conference on Robotics and Automation challenge focusing on advanced robotic manipulation and perception tasks.',
             details: 'Developed a image segmentation pipeline to detect and autonomously assemble a bevel gear assembly from scratch using a 6-DoF manipulator. The project involved developing a vision pipeline to detect the gear parts and a manipulation pipeline to autonomously assemble the gear.',
@@ -115,6 +90,31 @@ export default function ProjectsPage() {
             documentation: 'Technical documentation provided',
             artifacts: [
                 { name: 'Challenge Video', type: 'video', path: 'https://youtu.be/RJtAKvKiGgY' },
+            ]
+        },
+        {
+            id: 5,
+            title: 'LLM-Powered Recruiter Chatbot & Coaching System',
+            description: 'Enterprise-grade AI chatbot system for professional recruiter interactions with advanced knowledge management capabilities.',
+            details: 'Developed a production-ready, enterprise-grade chatbot that combines cutting-edge LLM technology with robust backend infrastructure. The system features multi-stage search capabilities, intelligent document processing, and continuous knowledge base evolution, making it suitable for professional recruiter interactions and automated coaching.',
+            icon: '🤖',
+            achievements: [
+                'Multi-stage search with semantic and metadata routing',
+                'Advanced document processing (PDF, DOCX, CSV, TXT, Images)',
+                'Intelligent chunking with context preservation',
+                'Vector database integration with ChromaDB',
+                'Production-ready FastAPI backend'
+            ],
+            duration: '3 months',
+            location: 'Personal Project',
+            type: 'AI/ML',
+            category: 'NLP',
+            status: 'Production Ready',
+            github: 'Private repository',
+            artifacts: [
+                { name: 'System Architecture', type: 'documentation', path: '#' },
+                { name: 'API Documentation', type: 'documentation', path: '#' },
+                { name: 'GitHub Repository', type: 'link', path: 'https://github.com/ShravanShenoy4477/personal-chatbot-backend' }
             ]
         },
         {
