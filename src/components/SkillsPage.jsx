@@ -30,14 +30,12 @@ export default function SkillsPage() {
 				{
 					name: 'Python',
 					level: 'Intermediate',
-					years: 4,
 					category: 'Programming Languages',
 					description: 'Machine Learning (PyTorch, Scikit-learn), Computer Vision (OpenCV, Mediapipe), Robotics (ROS2), Web Development (Flask)'
 				},
 				{
 					name: 'C++',
 					level: 'Intermediate',
-					years: 2,
 					category: 'Programming Languages',
 					description: 'Performance-critical robotics applications, ROS Noetic framework modules'
 				},
@@ -46,7 +44,6 @@ export default function SkillsPage() {
 				{
 					name: 'HTML/CSS',
 					level: 'Beginner',
-					years: 2,
 					category: 'Programming Languages',
 					description: 'Bootstrap, Flask GUI development for lung cancer prediction project'
 				},
@@ -55,28 +52,24 @@ export default function SkillsPage() {
 				{
 					name: 'ROS (Noetic & Humble)',
 					level: 'Intermediate',
-					years: 3,
 					category: 'Robotics',
 					description: 'Robot Operating System, MoveIt, motion planning, trajectory optimization'
 				},
 				{
 					name: 'Gazebo & Isaac Lab',
 					level: 'Intermediate',
-					years: 2,
 					category: 'Robotics',
 					description: 'Robot simulation, testing, and validation environments'
 				},
 				{
 					name: 'Motion Planning',
 					level: 'Intermediate',
-					years: 3,
 					category: 'Robotics',
 					description: 'RRT*, GDA algorithms, trajectory optimization, path planning algorithms'
 				},
 				{
 					name: 'Human-Robot Collaboration',
 					level: 'Intermediate',
-					years: 2,
 					category: 'Robotics',
 					description: 'HRC safety protocols, collaborative workspace design, human intention prediction, safety evaluation'
 				},
@@ -86,35 +79,30 @@ export default function SkillsPage() {
 				{
 					name: 'YOLO & SAM2',
 					level: 'Intermediate',
-					years: 2,
 					category: 'Computer Vision',
 					description: 'YOLO v7, Segment Anything Model 2.0, MobileSAM, FastSAM variants'
 				},
 				{
 					name: 'OpenCV & Mediapipe',
 					level: 'Intermediate',
-					years: 3,
 					category: 'Computer Vision',
 					description: 'Image processing, pose estimation, gesture recognition, real-time applications'
 				},
 				{
 					name: 'PyTorch & CUDA',
 					level: 'Intermediate',
-					years: 3,
 					category: 'Computer Vision',
 					description: 'Deep learning models, GPU programming, TensorRT, ONNX optimization'
 				},
 				{
 					name: 'Instance Segmentation',
 					level: 'Intermediate',
-					years: 2,
 					category: 'Computer Vision',
 					description: 'Mask R-CNN, OWL-ViT, NanoOWL, real-time object tracking'
 				},
 				{
 					name: 'Model Optimization',
 					level: 'Intermediate',
-					years: 2,
 					category: 'Computer Vision',
 					description: 'GPU profiling, benchmarking, edge device deployment, Jetson optimization'
 				},
@@ -123,35 +111,30 @@ export default function SkillsPage() {
 				{
 					name: 'PyTorch',
 					level: 'Intermediate',
-					years: 3,
 					category: 'Machine Learning',
 					description: 'Deep learning framework, neural network development, model training'
 				},
 				{
 					name: 'Scikit-learn & Pandas',
 					level: 'Intermediate',
-					years: 3,
 					category: 'Machine Learning',
 					description: 'Classical ML, ensemble learning, data preprocessing, feature engineering'
 				},
 				{
 					name: 'Ensemble Learning',
 					level: 'Basic',
-					years: 2,
 					category: 'Machine Learning',
 					description: 'Random Forest, Gradient Boosting, AdaBoost, survival analysis'
 				},
 				{
 					name: 'Data Analysis',
 					level: 'Intermediate',
-					years: 2,
 					category: 'Machine Learning',
 					description: 'NumPy, Matplotlib, statistical analysis, model evaluation'
 				},
 				{
 					name: 'NLP Concepts',
 					level: 'Beginner',
-					years: 1,
 					category: 'Machine Learning',
 					description: 'Natural Language Processing fundamentals, conceptual understanding'
 				},
@@ -161,28 +144,24 @@ export default function SkillsPage() {
 				{
 					name: 'Flask & Web Development',
 					level: 'Intermediate',
-					years: 2,
 					category: 'Software Development',
 					description: 'Web applications, API development, GUI interfaces'
 				},
 				{
 					name: 'Git & Version Control',
 					level: 'Intermediate',
-					years: 4,
 					category: 'Software Development',
 					description: 'Collaborative development, branching strategies, project management'
 				},
 				{
 					name: 'Linux Shell Scripting',
 					level: 'Intermediate',
-					years: 3,
 					category: 'Software Development',
 					description: 'Bash scripting, automation, system administration, deployment scripts'
 				},
 				{
 					name: 'Documentation & APIs',
 					level: 'Intermediate',
-					years: 2,
 					category: 'Software Development',
 					description: 'Technical documentation, API integration, project specifications'
 				}
@@ -297,7 +276,6 @@ export default function SkillsPage() {
 													<span className={`px-2 py-0.5 text-[10px] font-medium rounded-full border ${getLevelColor(skill.level)}`}>
 														{skill.level}
 													</span>
-													<span className="text-xs text-gray-500">({skill.years} yrs)</span>
 												</div>
 												{skill.description && (
 													<p className="text-sm text-gray-600">
