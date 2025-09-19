@@ -14,7 +14,7 @@ export default function LoadingPage() {
     }, [navigate]);
 
     return (
-        <div className="h-screen w-screen bg-[#fefae0] flex items-center justify-center animate-fadeIn">
+        <div className="h-screen w-screen bg-blue-50 flex items-center justify-center animate-fadeIn">
             <div className="text-black text-center px-4 w-full max-w-[600px]">
                 <h1 className="text-2xl sm:text-3xl font-medium mb-8 leading-snug">
                     Hi! Welcome to my personal webpage.<br />

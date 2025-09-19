@@ -206,7 +206,7 @@ export default function SkillsPage() {
 	};
 
 	return (
-		<div className="min-h-screen bg-[#fefae0]">
+		<div className="min-h-screen bg-blue-50">
 			{/* Navigation Tabs */}
 			<nav className="bg-white shadow-sm border-b border-gray-200">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
